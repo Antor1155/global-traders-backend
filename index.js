@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors")
 
 const {connectToDb, disconnectDb} = require("./database")
-const Product = require("./schema/product")
+const ParentProduct = require("./schema/parentProduct")
 
 const app = express()
 const port = process.env.PORT || 5000;
@@ -11,22 +11,24 @@ app.use(express.json())
 app.use(cors())
 
 
+
+
 app.get("/products", async(req, res) =>{
     connectToDb()
 
-    const product = await Product.find()
+    const product = await ParentProduct.find()
     res.json(product)
 
     disconnectDb()
 })
 
-app.post("createproduct", async(req, res)=>{
+app.post("createparent", async(req, res)=>{
     connectToDb()
 
-    const {name, description } = req.body;
+    const {modelName, description } = req.body;
 
     try{
-        const newProduct = new Product({name, description})
+        const newProduct = new ParentProduct({modelName, description})
         await newProduct.save()
         res.status(201).json(newProduct)
 
