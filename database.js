@@ -13,11 +13,11 @@ function connectToDb () {
     }
 }
 
-function disconnectDb(){
+async function disconnectDb(){
     let state = mongoose.connection.readyState
 
     if(state || state != 3){
-        mongoose.disconnect()
+        await mongoose.disconnect()
     }
 }
 
