@@ -61,16 +61,24 @@ app.delete("/deleteSingleCatagory/:id", (req, res)=>{
 
 
 // this part is for product 
+// get all products
 app.get("/allProducts", async (req, res)=>{
     connectToDb()
     const allProduct = await SingleVariation.find()
     res.json(allProduct)
 })
 
-
-app.post("/addsingleproduct", (req, res)=>{
+//make a product
+app.post("/addsingleproduct", async(req, res)=>{
     connectToDb()
-    const newProduct = new SingleVariation()
+
+    let product = req.body
+
+    const newProduct = new SingleVariation(product)
+
+    await newProduct.save()
+
+    res.status(200).json(newProduct)
 })
 
 

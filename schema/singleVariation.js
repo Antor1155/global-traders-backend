@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const singleVariationSchema = new mongoose.Schema({
+    parentCatagory: {type: mongoose.Schema.Types.ObjectId},
     description: String,
     storage: String,
-    colorValue: String,
-    colorName: String,
+    color: Object,
     price: Number,
     originalPrice: Number,
     reviewScore: Number,
