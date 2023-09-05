@@ -26,10 +26,10 @@ app.get("/allparentscatagories", async(req, res) =>{
 app.post("/createparent", async(req, res)=>{
     connectToDb()
 
-    const {modelName, description } = req.body;
+    const {modelName, description, images } = req.body;
 
     try{
-        const newProduct = new ParentProduct({modelName, description})
+        const newProduct = new ParentProduct({modelName, description, images})
         await newProduct.save()
         res.status(201).json(newProduct)
 
