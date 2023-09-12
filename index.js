@@ -81,6 +81,16 @@ app.post("/product", async(req, res)=>{
     res.status(200).json(newProduct)
 })
 
+// edit product 
+app.patch("/product/:id", (req, res)=>{
+    connectToDb()
+    const id = req.params.id
+    const update = req.body;
+
+    SingleVariation.findByIdAndUpdate(id, update)
+    .then(result => res.status(200).json(result))
+    .catch(error => console.log(error))
+})
 
 app.use((req, res) => {
     res.status(404).json({error: "are you hacking ?"})
