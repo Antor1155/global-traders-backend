@@ -6,6 +6,7 @@ const singleVariationSchema = new mongoose.Schema({
     storage: String,
     color: Object,
     price: Number,
+    discountPrice: Number,
     originalPrice: Number,
     reviewScore: Number,
     peopleReviewed: Number,
