@@ -14,7 +14,7 @@ app.use(cors())
 
 
 // when asked for all catagories 
-app.get("/allparentscatagories", async(req, res) =>{
+app.get("/catagory", async(req, res) =>{
     connectToDb()
 
     const product = await ParentProduct.find()
@@ -23,7 +23,7 @@ app.get("/allparentscatagories", async(req, res) =>{
 })
 
 // when creating parent model 
-app.post("/createparent", async(req, res)=>{
+app.post("/catagory", async(req, res)=>{
     connectToDb()
 
     const {modelName, description, images } = req.body;
@@ -39,7 +39,7 @@ app.post("/createparent", async(req, res)=>{
 })
 
 // edit catagory 
-app.patch("/updateparentcatagory/:id", (req, res)=>{
+app.patch("/catagory/:id", (req, res)=>{
     connectToDb()
     const id = req.params.id
     const update = req.body;
@@ -51,7 +51,7 @@ app.patch("/updateparentcatagory/:id", (req, res)=>{
 
 //delete a catagory
 
-app.delete("/deleteSingleCatagory/:id", (req, res)=>{
+app.delete("/catagory/:id", (req, res)=>{
     connectToDb()
     const id = req.params.id
     ParentProduct.findByIdAndDelete(id)
@@ -62,14 +62,14 @@ app.delete("/deleteSingleCatagory/:id", (req, res)=>{
 
 // this part is for product 
 // get all products
-app.get("/allProducts", async (req, res)=>{
+app.get("/product", async (req, res)=>{
     connectToDb()
     const allProduct = await SingleVariation.find()
     res.json(allProduct)
 })
 
 //make a product
-app.post("/addsingleproduct", async(req, res)=>{
+app.post("/product", async(req, res)=>{
     connectToDb()
 
     let product = req.body
