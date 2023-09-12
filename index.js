@@ -92,6 +92,15 @@ app.patch("/product/:id", (req, res)=>{
     .catch(error => console.log(error))
 })
 
+app.delete("/product/:id", (req, res) => {
+    connectToDb()
+    const id = req.params.id
+
+    SingleVariation.findByIdAndDelete(id)
+    .then(result => res.status(200).json(result))
+    .catch(error => console.log("product delete error: ***: ", error))
+})
+
 app.use((req, res) => {
     res.status(404).json({error: "are you hacking ?"})
 })
