@@ -68,6 +68,20 @@ app.get("/product", async (req, res)=>{
     res.json(allProduct)
 })
 
+//get single product
+
+app.get("/product/:id", async(req, res) => {
+    try{
+        connectToDb()
+        const id = req.params.id
+        
+        const product = await SingleVariation.findById(id)
+        res.status(200).json(product)
+    }catch{
+        console.log("error in produt/:id get *** : ", error)
+    }
+})
+
 //make a product
 app.post("/product", async(req, res)=>{
     connectToDb()
