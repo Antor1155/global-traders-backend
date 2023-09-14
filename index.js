@@ -69,7 +69,6 @@ app.get("/product", async (req, res)=>{
 })
 
 //get single product
-
 app.get("/product/:id", async(req, res) => {
     try{
         connectToDb()
@@ -80,6 +79,19 @@ app.get("/product/:id", async(req, res) => {
     }catch{
         console.log("error in produt/:id get *** : ", error)
     }
+})
+//get first n products, ex: 12 with skip: 0
+app.get("/products/:n/:skip", async (req, res)=>{
+    try{
+        connectToDb()
+        const n = req.params.n
+        const skip = req.params.skip
+
+        const products = await SingleVariation.find().skip(skip).limit(n)
+
+        res.json(products)
+
+    }catch{error => console.log(error)}
 })
 
 //make a product
