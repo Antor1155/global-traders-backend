@@ -173,10 +173,9 @@ app.post("/checkout-customer", async (req, res) => {
                             description: `${info?.color?.name} ${info?.condition} ${info?.storage}`,
                             images: [info?.image],
                             metadata: {
-                                productName: info?.productName,
-                                color: info?.color?.name,
-                                storage: info?.storage,
-                                condition: info?.condition,
+                                productId: info?._id,
+                                quantity,
+                                totalPaid: info?.price * quantity
                             }
                         },
                     },
@@ -234,6 +233,17 @@ app.post("/checkout-customer", async (req, res) => {
 
     } catch (error) {
         console.log("error in /checkout-customer ***", error)
+    }
+})
+
+//get all orders 
+app.get("/admin-orders", async(req, res)=>{
+    try{
+        connectToDb()
+        const orders = await Order.find().sort({createdAt: -1})
+        res.json(orders)
+    }catch(error){
+        console.log("error in /admin-order ***", error)
     }
 })
 
