@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
+require("dotenv").config()
 
-const uri = "mongodb+srv://socialengagementgroupmarketing:MX9LgCTbRFFbAriF@cluster0.jg8du4c.mongodb.net/?retryWrites=true&w=majority"
+const uri = process.env.MONGODB_URL
 
 function connectToDb () {
     let state = mongoose.connection.readyState

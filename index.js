@@ -1,5 +1,6 @@
 const express = require("express")
 const cors = require("cors")
+require("dotenv").config()
 
 const { connectToDb, disconnectDb } = require("./database")
 const ParentProduct = require("./schema/parentProduct")
@@ -7,7 +8,7 @@ const SingleVariation = require("./schema/singleVariation")
 const Order = require("./schema/order")
 const { connect } = require("mongoose")
 
-const stripe = require("stripe")()
+const stripe = require("stripe")(process.env.STRIPE_KEY)
 
 
 const app = express()
@@ -166,15 +167,20 @@ app.post("/checkout-customer", async (req, res) => {
                     quantity,
                     price_data: {
                         currency: "USD",
-                        unit_amount: quantity * info?.price * 100,
-                        product_data: { name: info?.productName },
+                        unit_amount: info?.price * 100,
+                        product_data: { 
+                            name: info?.productName,
+                            description: `${info?.color?.name} ${info?.condition} ${info?.storage}`,
+                            images: [info?.image],
+                            metadata: {
+                                productName: info?.productName,
+                                color: info?.color?.name,
+                                storage: info?.storage,
+                                condition: info?.condition,
+                            }
+                        },
                     },
-                    metadata: {
-                        product_name: info?.productName,
-                        color: info?.color?.name,
-                        storage: info?.storage,
-                        condition: info?.condition,
-                    }
+                    
                 })
             }
         }
@@ -211,14 +217,23 @@ app.post("/checkout-customer", async (req, res) => {
                     street,
                     country,
                     shipping,
-                    paid: true,
-                    status: "processing",
+                    paid: false,
+                    status: "payment failed",
                 })
         
-        res.json(order)
+        
+        const session = await stripe.checkout.sessions.create({
+            line_items,
+            mode: "payment",
+            customer_email: email,
+            success_url: process.env.PUBLIC_URL + "/success",
+            cancel_url: process.env.PUBLIC_URL + "/fail",
+        })
+
+        res.json(session.url)
 
     } catch (error) {
-        console.log("error in /checkout-customer", error)
+        console.log("error in /checkout-customer ***", error)
     }
 })
 
