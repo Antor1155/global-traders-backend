@@ -191,7 +191,12 @@ app.post("/checkout-customer", async (req, res) => {
                 price_data: {
                     currency: "USD",
                     unit_amount: 10 * 100,
-                    product_data: { name: "priority shipping" }
+                    product_data: { 
+                        name: "priority shipping",
+                        metadata: {
+                            totalPaid: 10
+                        }
+                    }
                 }
             })
         } else if (shipping === "express") {
@@ -200,7 +205,26 @@ app.post("/checkout-customer", async (req, res) => {
                 price_data: {
                     currency: "USD",
                     unit_amount: 30 * 100,
-                    product_data: { name: "express shipping" }
+                    product_data: { 
+                        name: "express shipping",
+                        metadata: {
+                            totalPaid: 30
+                        }
+                    }
+                }
+            })
+        } else{
+            line_items.push({
+                quantity: 1,
+                price_data: {
+                    currency: "USD",
+                    unit_amount: 0 * 100,
+                    product_data: { 
+                        name: "First Class shipping",
+                        metadata: {
+                            totalPaid: 0
+                        }
+                    }
                 }
             })
         }
