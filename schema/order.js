@@ -12,11 +12,7 @@ const OrderSchema = new Schema({
     shipping: String,
     paid: Boolean,
     status: String,
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    }
-})
+}, {timestamps: true})
 
 const Order = models?.Order || model("Order", OrderSchema)
 
