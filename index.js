@@ -13,7 +13,20 @@ const stripe = require("stripe")(process.env.STRIPE_KEY)
 
 const app = express()
 
-app.use(express.json())
+// Create a custom middleware to conditionally parse JSON request body.
+const conditionalJsonParser = (request, response, next) => {
+    if (request.originalUrl.startsWith('/webhook')) {
+        // If the route starts with "/webhook," don't parse JSON.
+        return next();
+    }
+    express.json()(request, response, next);
+};
+
+
+// Apply the custom middleware globally.
+app.use(conditionalJsonParser);
+
+
 app.use(cors())
 
 
@@ -148,11 +161,12 @@ app.post("/cart", async (req, res) => {
     }
 })
 
+
+// checkout page backend to send user to stripe page and return back 
 app.post("/checkout-customer", async (req, res) => {
     try {
         connectToDb()
         const { name, email, phone, city, postal, street, country, orders, shipping } = req.body
-        console.log({ name, email, phone, city, postal, street, country, orders, shipping })
         const uniqueOrders = [...new Set(orders)]
         const productsInfo = await SingleVariation.find({ _id: uniqueOrders })
 
@@ -168,7 +182,7 @@ app.post("/checkout-customer", async (req, res) => {
                     price_data: {
                         currency: "USD",
                         unit_amount: info?.price * 100,
-                        product_data: { 
+                        product_data: {
                             name: info?.productName,
                             description: `${info?.color?.name} ${info?.condition} ${info?.storage}`,
                             images: [info?.image],
@@ -179,7 +193,7 @@ app.post("/checkout-customer", async (req, res) => {
                             }
                         },
                     },
-                    
+
                 })
             }
         }
@@ -191,7 +205,7 @@ app.post("/checkout-customer", async (req, res) => {
                 price_data: {
                     currency: "USD",
                     unit_amount: 10 * 100,
-                    product_data: { 
+                    product_data: {
                         name: "priority shipping",
                         metadata: {
                             totalPaid: 10
@@ -205,7 +219,7 @@ app.post("/checkout-customer", async (req, res) => {
                 price_data: {
                     currency: "USD",
                     unit_amount: 30 * 100,
-                    product_data: { 
+                    product_data: {
                         name: "express shipping",
                         metadata: {
                             totalPaid: 30
@@ -213,13 +227,13 @@ app.post("/checkout-customer", async (req, res) => {
                     }
                 }
             })
-        } else{
+        } else {
             line_items.push({
                 quantity: 1,
                 price_data: {
                     currency: "USD",
                     unit_amount: 0 * 100,
-                    product_data: { 
+                    product_data: {
                         name: "First Class shipping",
                         metadata: {
                             totalPaid: 0
@@ -231,25 +245,25 @@ app.post("/checkout-customer", async (req, res) => {
 
 
         const order = await Order.create({
-                    line_items,
-                    name,
-                    email,
-                    phone,
-                    city,
-                    postal,
-                    street,
-                    country,
-                    shipping,
-                    paid: false,
-                    status: "payment failed",
-                })
-        
-        
+            line_items,
+            name,
+            email,
+            phone,
+            city,
+            postal,
+            street,
+            country,
+            shipping,
+            paid: false,
+            status: "payment failed",
+        })
+
+
         const session = await stripe.checkout.sessions.create({
             line_items,
             mode: "payment",
             customer_email: email,
-            success_url: process.env.PUBLIC_URL + "/success",
+            success_url: process.env.PUBLIC_URL,
             cancel_url: process.env.PUBLIC_URL + "/fail",
         })
 
@@ -260,21 +274,57 @@ app.post("/checkout-customer", async (req, res) => {
     }
 })
 
+
+
 //get all orders 
-app.get("/admin-orders", async(req, res)=>{
-    try{
+app.get("/admin-orders", async (req, res) => {
+    try {
         connectToDb()
-        const orders = await Order.find().sort({createdAt: -1})
+        const orders = await Order.find().sort({ createdAt: -1 })
         res.json(orders)
-    }catch(error){
+    } catch (error) {
         console.log("error in /admin-order ***", error)
     }
 })
 
+
+// stripe webhook to update order status 
+app.post('/webhook', express.raw({ type: 'application/json' }), async (request, response) => {
+    connectToDb()
+    const endpointSecret = "whsec_0a342bd8f77706fb693a1b32b726cb412de4455ee74e4e5d5d921af8d65ea4b9";
+    const sig = request.headers['stripe-signature'];
+
+    let event;
+
+    try {
+        event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+        console.log("event is working stripe webhook ***, ")
+    } catch (err) {
+        console.log("error happened in stripe webhook ***")
+        response.status(400).send(`Webhook Error: ${err.message}`);
+        return;
+    }
+
+    // Handle the event
+    switch (event.type) {
+        case 'payment_intent.succeeded':
+            const paymentIntentSucceeded = event.data.object;
+            // Then define and call a function to handle the event payment_intent.succeeded
+            break;
+        // ... handle other event types
+        default:
+            console.log(`Unhandled event type ${event.type}`);
+    }
+
+    // Return a 200 response to acknowledge receipt of the event
+    response.send();
+});
+
+
 // warining sing to unwanted route 
-app.use((req, res) => {
-    res.status(404).json({ error: "are you hacking ?" })
-})
+// app.use((req, res) => {
+//     res.status(404).json({ error: "are you hacking ?" })
+// })
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
