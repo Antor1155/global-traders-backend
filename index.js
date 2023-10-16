@@ -277,11 +277,27 @@ app.post("/checkout-customer", async (req, res) => {
 
 
 
-//get all orders 
-app.get("/admin-orders", async (req, res) => {
+//get all orders based on different catagory
+app.get("/admin-orders/:status", async (req, res) => {
+    const status = req.params.status
+
     try {
         connectToDb()
-        const orders = await Order.find().sort({ createdAt: -1 })
+        let orders = []
+       
+        if(status.startsWith("byEmail") || status.startsWith("byOrderId")){
+            const [method, value] = status.split(":")
+            if(method === "byEmail"){
+                orders = await Order.find({email: value}).sort({updatedAt: -1})
+            } else{
+                orders = [await Order.findById(value)]
+            }
+
+        }else{
+            // get order from latest to old 
+            orders = await Order.find({status}).sort({ updatedAt: -1 })
+        }
+
         res.json(orders)
     } catch (error) {
         console.log("error in /admin-order ***", error)
