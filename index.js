@@ -265,6 +265,7 @@ app.post("/checkout-customer", async (req, res) => {
             customer_email: email,
             success_url: process.env.PUBLIC_URL,
             cancel_url: process.env.PUBLIC_URL + "/fail",
+            metadata:{orderId: order._id.toString(), test:" ok "}
         })
 
         res.json(session.url)
@@ -298,7 +299,6 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
 
     try {
         event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-        console.log("event is working stripe webhook ***, ")
     } catch (err) {
         console.log("error happened in stripe webhook ***")
         response.status(400).send(`Webhook Error: ${err.message}`);
@@ -307,8 +307,20 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
 
     // Handle the event
     switch (event.type) {
-        case 'payment_intent.succeeded':
-            const paymentIntentSucceeded = event.data.object;
+        case 'checkout.session.completed':
+            const data = event.data.object;
+            const orderId = data.metadata.orderId
+            const paid = data.payment_status
+
+            console.log(orderId, paid, "*** status of the order")
+
+            if(orderId && (paid === "paid")){
+                await Order.findByIdAndUpdate(orderId, {
+                    paid: true, 
+                    status: "Processing",
+                })
+            }
+
             // Then define and call a function to handle the event payment_intent.succeeded
             break;
         // ... handle other event types
@@ -319,6 +331,18 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
     // Return a 200 response to acknowledge receipt of the event
     response.send();
 });
+
+app.post("/update-order-status", async(req, res) =>{
+    const {orderId, status} = req.body
+    connectToDb()
+
+    try{
+        await Order.findByIdAndUpdate(orderId,{status})
+    }catch(error){
+        console.log("error in /update-order-status *** ", error)
+    }
+
+})
 
 
 // warining sing to unwanted route 
