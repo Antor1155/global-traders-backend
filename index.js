@@ -295,7 +295,7 @@ app.get("/admin-orders/:status", async (req, res) => {
 
         }else{
             // get order from latest to old 
-            orders = await Order.find({status}).sort({ updatedAt: -1 })
+            orders = await Order.find({status})
         }
 
         res.json(orders)
