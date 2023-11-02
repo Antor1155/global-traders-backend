@@ -360,6 +360,22 @@ app.post("/update-order-status", async(req, res) =>{
 
 })
 
+// get all order of a single client 
+app.get("/client-orders/:email", async(req, res)=>{
+    const email = req.params.email
+
+    try{
+        connectToDb()
+
+        const orders = await Order.find({email, paid: true}).sort({updatedAt: -1})
+        res.json(orders)
+
+    }catch(error){
+        console.log("error in client-orders page", error)
+        res.json("Error: counldn't get orders")
+    }
+})
+
 
 // warining sing to unwanted route 
 // app.use((req, res) => {
