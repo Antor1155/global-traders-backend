@@ -6,7 +6,7 @@ const { connectToDb, disconnectDb } = require("./database")
 const ParentProduct = require("./schema/parentProduct")
 const SingleVariation = require("./schema/singleVariation")
 const Order = require("./schema/order")
-const { connect } = require("mongoose")
+const { connect, model } = require("mongoose")
 
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
@@ -68,7 +68,6 @@ app.patch("/catagory/:id", (req, res) => {
 })
 
 //delete a catagory
-
 app.delete("/catagory/:id", (req, res) => {
     connectToDb()
     const id = req.params.id
@@ -98,18 +97,37 @@ app.get("/product/:id", async (req, res) => {
         console.log("error in produt/:id get *** : ", error)
     }
 })
+
 //get first n products, ex: 12 with skip: 0
-app.get("/products/:n/:skip", async (req, res) => {
+app.post("/products/:n/:skip", async (req, res) => {
     try {
         connectToDb()
         const n = req.params.n
         const skip = req.params.skip
 
-        const products = await SingleVariation.find().skip(skip).limit(n)
+        const { productName, storage, color, price, condition } = req.body
 
+        const searchQuery = {
+            productName: productName.length ? { $in: productName } : {$exists: true},
+            storage: storage.length ? { $in: storage } : {$exists: true},
+            "color.name": color.length ? { $in: color } : {$exists: true},
+            condition: condition.length ? { $in: condition } : {$exists: true},
+            price: { $gte: price[0], $lte: price[1] },
+        }
+
+        console.log("server query: ", searchQuery)
+
+        const products = await SingleVariation.find(searchQuery).skip(skip).limit(n)
+        // const products = await SingleVariation.find(searchQuery)
+
+        if (products.length) {
+
+            console.log("products present")
+            // console.log("products present : ", products)
+        }
         res.json(products)
 
-    } catch { error => console.log(error) }
+    } catch { error => console.log("error in get filtered product : ", error) }
 })
 
 //make a product
@@ -265,7 +283,7 @@ app.post("/checkout-customer", async (req, res) => {
             customer_email: email,
             success_url: process.env.PUBLIC_URL,
             cancel_url: process.env.PUBLIC_URL + "/fail",
-            metadata:{orderId: order._id.toString(), test:" ok "}
+            metadata: { orderId: order._id.toString(), test: " ok " }
         })
 
         res.json(session.url)
@@ -284,18 +302,18 @@ app.get("/admin-orders/:status", async (req, res) => {
     try {
         connectToDb()
         let orders = []
-       
-        if(status.startsWith("byEmail") || status.startsWith("byOrderId")){
+
+        if (status.startsWith("byEmail") || status.startsWith("byOrderId")) {
             const [method, value] = status.split(":")
-            if(method === "byEmail"){
-                orders = await Order.find({email: value}).sort({updatedAt: -1})
-            } else{
+            if (method === "byEmail") {
+                orders = await Order.find({ email: value }).sort({ updatedAt: -1 })
+            } else {
                 orders = [await Order.findById(value)]
             }
 
-        }else{
+        } else {
             // get order from latest to old 
-            orders = await Order.find({status})
+            orders = await Order.find({ status })
         }
 
         res.json(orders)
@@ -330,9 +348,9 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
 
             console.log(orderId, paid, "*** status of the order")
 
-            if(orderId && (paid === "paid")){
+            if (orderId && (paid === "paid")) {
                 await Order.findByIdAndUpdate(orderId, {
-                    paid: true, 
+                    paid: true,
                     status: "Processing",
                 })
             }
@@ -348,29 +366,29 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
     response.send();
 });
 
-app.post("/update-order-status", async(req, res) =>{
-    const {orderId, status} = req.body
+app.post("/update-order-status", async (req, res) => {
+    const { orderId, status } = req.body
     connectToDb()
 
-    try{
-        await Order.findByIdAndUpdate(orderId,{status})
-    }catch(error){
+    try {
+        await Order.findByIdAndUpdate(orderId, { status })
+    } catch (error) {
         console.log("error in /update-order-status *** ", error)
     }
 
 })
 
 // get all order of a single client 
-app.get("/client-orders/:email", async(req, res)=>{
+app.get("/client-orders/:email", async (req, res) => {
     const email = req.params.email
 
-    try{
+    try {
         connectToDb()
 
-        const orders = await Order.find({email, paid: true}).sort({updatedAt: -1})
+        const orders = await Order.find({ email, paid: true }).sort({ updatedAt: -1 })
         res.json(orders)
 
-    }catch(error){
+    } catch (error) {
         console.log("error in client-orders page", error)
         res.json("Error: counldn't get orders")
     }
