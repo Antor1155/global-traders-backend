@@ -98,6 +98,19 @@ app.get("/product/:id", async (req, res) => {
     }
 })
 
+// get all products of same parent catagory 
+app.get("/allSameParentProducts/:parentId", async (req, res) => {
+    try {
+        connectToDb()
+        const id = req.params.parentId
+
+        const product = await SingleVariation.find({parentCatagory: id})
+        res.status(200).json(product)
+    } catch {
+        console.log("error in produt/:id get *** : ", error)
+    }
+})
+
 //get first n products, ex: 12 with skip: 0
 app.post("/products/:n/:skip", async (req, res) => {
     try {
