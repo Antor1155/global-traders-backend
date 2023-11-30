@@ -339,7 +339,7 @@ app.get("/admin-orders/:status", async (req, res) => {
 // stripe webhook to update order status 
 app.post('/webhook', express.raw({ type: 'application/json' }), async (request, response) => {
     connectToDb()
-    const endpointSecret = "whsec_0a342bd8f77706fb693a1b32b726cb412de4455ee74e4e5d5d921af8d65ea4b9";
+    const endpointSecret = process.env.STRIPE_SECRET;
     const sig = request.headers['stripe-signature'];
 
     let event;
@@ -376,7 +376,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
     }
 
     // Return a 200 response to acknowledge receipt of the event
-    response.send();
+    response.send("stripe connection success");
 });
 
 app.post("/update-order-status", async (req, res) => {
