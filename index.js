@@ -1,6 +1,13 @@
 const express = require("express")
 const cors = require("cors")
+const app = express()
+app.use(cors())
+
 require("dotenv").config()
+
+// for firebase-function upload only 
+const functions = require('firebase-functions');
+
 
 const { connectToDb, disconnectDb } = require("./database")
 const ParentProduct = require("./schema/parentProduct")
@@ -11,7 +18,7 @@ const { connect, model } = require("mongoose")
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
 
-const app = express()
+
 
 // Create a custom middleware to conditionally parse JSON request body.
 const conditionalJsonParser = (request, response, next) => {
@@ -27,7 +34,6 @@ const conditionalJsonParser = (request, response, next) => {
 app.use(conditionalJsonParser);
 
 
-app.use(cors())
 
 
 
@@ -413,7 +419,12 @@ app.get("/client-orders/:email", async (req, res) => {
 //     res.status(404).json({ error: "are you hacking ?" })
 // })
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log("server is running on port, ", port)
-});
+// this part is for node js 
+
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => {
+//     console.log("server is running on port, ", port)
+// });
+
+// this part is for firebase
+exports.app = functions.https.onRequest(app)
