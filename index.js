@@ -117,6 +117,7 @@ app.get("/allSameParentProducts/:parentId", async (req, res) => {
     }
 })
 
+//get products with search terms
 app.get("/searchproducts", async (req, res) => {
     // we get ?search = value , so splid and get only value 
     const query = req.query.search.split("=")[1]
