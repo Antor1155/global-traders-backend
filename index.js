@@ -110,10 +110,44 @@ app.get("/allSameParentProducts/:parentId", async (req, res) => {
         connectToDb()
         const id = req.params.parentId
 
-        const product = await SingleVariation.find({parentCatagory: id})
+        const product = await SingleVariation.find({ parentCatagory: id })
         res.status(200).json(product)
     } catch {
         console.log("error in produt/:id get *** : ", error)
+    }
+})
+
+app.get("/searchproducts", async (req, res) => {
+    // we get ?search = value , so splid and get only value 
+    const query = req.query.search.split("=")[1]
+
+    // for multiple values take splited with " " space 
+    const searchTerms = query.split(" ")
+
+    try {
+        connectToDb()
+
+        const result = []
+
+        for (const term of searchTerms) {
+            const regex = new RegExp(term, "i")
+
+            const products = await SingleVariation.find({
+                $or: [
+                    { productName: { $regex: regex } },
+                    { storage: { $regex: regex } },
+                    { condition: { $regex: regex } },
+                ]
+            })
+
+            result.push(...products)
+        }
+
+        res.status(200).json(result)
+
+    } catch (error) {
+        console.log("error in searchProducts", error)
+        res.status(500).json("error in search products")
     }
 })
 
@@ -127,21 +161,21 @@ app.post("/products/:n/:skip", async (req, res) => {
         const { productName, storage, color, price, condition } = req.body
 
         const searchQuery = {
-            productName: productName.length ? { $in: productName } : {$exists: true},
-            storage: storage.length ? { $in: storage } : {$exists: true},
-            "color.name": color.length ? { $in: color } : {$exists: true},
-            condition: condition.length ? { $in: condition } : {$exists: true},
+            productName: productName.length ? { $in: productName } : { $exists: true },
+            storage: storage.length ? { $in: storage } : { $exists: true },
+            "color.name": color.length ? { $in: color } : { $exists: true },
+            condition: condition.length ? { $in: condition } : { $exists: true },
             price: { $gte: price[0], $lte: price[1] },
         }
 
-        console.log("server query: ", searchQuery)
+        // console.log("server query: ", searchQuery)
 
         const products = await SingleVariation.find(searchQuery).skip(skip).limit(n)
         // const products = await SingleVariation.find(searchQuery)
 
         if (products.length) {
 
-            console.log("products present")
+            // console.log("products present")
             // console.log("products present : ", products)
         }
         res.json(products)
@@ -352,33 +386,34 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
 
     try {
         event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+
+        // Handle the event
+        switch (event.type) {
+            case 'checkout.session.completed':
+                const data = event.data.object;
+                const orderId = data.metadata.orderId
+                const paid = data.payment_status
+
+                console.log(orderId, paid, "*** status of the order")
+
+                if (orderId && (paid === "paid")) {
+                    await Order.findByIdAndUpdate(orderId, {
+                        paid: true,
+                        status: "Processing",
+                    })
+                }
+
+                // Then define and call a function to handle the event payment_intent.succeeded
+                break;
+            // ... handle other event types
+            default:
+                console.log(`Unhandled event type ${event.type}`);
+        }
+
     } catch (err) {
         console.log("error happened in stripe webhook ***")
         response.status(400).send(`Webhook Error: ${err.message}`);
         return;
-    }
-
-    // Handle the event
-    switch (event.type) {
-        case 'checkout.session.completed':
-            const data = event.data.object;
-            const orderId = data.metadata.orderId
-            const paid = data.payment_status
-
-            console.log(orderId, paid, "*** status of the order")
-
-            if (orderId && (paid === "paid")) {
-                await Order.findByIdAndUpdate(orderId, {
-                    paid: true,
-                    status: "Processing",
-                })
-            }
-
-            // Then define and call a function to handle the event payment_intent.succeeded
-            break;
-        // ... handle other event types
-        default:
-            console.log(`Unhandled event type ${event.type}`);
     }
 
     // Return a 200 response to acknowledge receipt of the event
