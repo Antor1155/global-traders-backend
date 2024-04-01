@@ -335,8 +335,8 @@ app.post("/checkout-customer", async (req, res) => {
             line_items,
             mode: "payment",
             customer_email: email,
-            success_url: process.env.PUBLIC_URL,
-            cancel_url: process.env.PUBLIC_URL + "/fail",
+            success_url: process.env.SUCCESS_URL,
+            cancel_url: process.env.PUBLIC_URL,
             metadata: { orderId: order._id.toString(), test: " ok " }
         })
 
