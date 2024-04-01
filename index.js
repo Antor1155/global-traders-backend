@@ -14,6 +14,7 @@ const ParentProduct = require("./schema/parentProduct")
 const SingleVariation = require("./schema/singleVariation")
 const Order = require("./schema/order")
 const { connect, model } = require("mongoose")
+const AvailableCatagories = require("./schema/availableCatagories")
 
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
@@ -36,13 +37,35 @@ app.use(conditionalJsonParser);
 
 
 
-
 // when asked for all catagories 
 app.get("/catagory", async (req, res) => {
     connectToDb()
 
     const product = await ParentProduct.find()
     res.json(product)
+})
+
+//getting availableCatagories
+app.get("/available-catagories", async(req, res) => {
+    connectToDb()
+
+    const availableCatagories = await AvailableCatagories.find()
+    res.status(200).json(availableCatagories)
+})
+
+// making available catagories 
+app.get("/mka", async(req, res) => {
+    try{
+        connectToDb()
+        // const  ctg = new AvailableCatagories({categories: ["iphone 8 plus", "iphone X","iphone XR","iphone XS","iphone 8"]})
+        const  ctg = new AvailableCatagories({categories: []})
+        await ctg.save()
+        
+        res.status(200).json(ctg)
+
+    }catch(error){
+        res.status(200).json(error)
+    }
 
 })
 
@@ -186,6 +209,8 @@ app.post("/products/:n/:skip", async (req, res) => {
 
 //make a product
 app.post("/product", async (req, res) => {
+    try{
+
     connectToDb()
 
     let product = req.body
@@ -194,7 +219,28 @@ app.post("/product", async (req, res) => {
 
     await newProduct.save()
 
+    // add the product modelname to available catagories 
+    const act = await AvailableCatagories.find()
+
+    const category = act[0]?.categories
+    const idCtg = act[0]._id
+
+    
+    if(!category.includes(newProduct.productName)){
+        category.push(newProduct.productName)
+
+        await AvailableCatagories.findByIdAndUpdate(idCtg, {
+            categories: category
+        } )
+    }
+
     res.status(200).json(newProduct)
+
+}catch(error){
+    console.log("error in creating new product and category : ", error)
+    res.send(500).json(error)
+}
+
 })
 
 // edit product 
