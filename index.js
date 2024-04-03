@@ -15,6 +15,7 @@ const SingleVariation = require("./schema/singleVariation")
 const Order = require("./schema/order")
 const { connect, model } = require("mongoose")
 const AvailableCatagories = require("./schema/availableCatagories")
+const { error } = require("firebase-functions/logger")
 
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
@@ -501,7 +502,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (request, 
         }
 
     } catch (err) {
-        console.log("error happened in stripe webhook ***")
+        console.log("error happened in stripe webhook ***", err)
         response.status(400).send(`Webhook Error: ${err.message}`);
         return;
     }
