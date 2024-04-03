@@ -436,10 +436,10 @@ app.get("/admin-orders-by-data", async (req, res) => {
         }
 
         // Get orders created today
-        const todayStart = new Date();
-        todayStart.setHours(0, 0, 0, 0);
+        const thisDay = new Date()
+        thisDay.setHours(0, 0, 0, 0);
 
-        const tDay = await Order.find({ createdAt: { $gte: todayStart } })
+        const tDay = await Order.find({ createdAt: { $gte: thisDay } })
 
         // Get orders created this week
         const thisWeekStart = new Date();
@@ -449,11 +449,11 @@ app.get("/admin-orders-by-data", async (req, res) => {
         const tWeek = await Order.find({ createdAt: { $gte: thisWeekStart } })
 
         // Get orders created this month
-        const thisMonthStart = new Date();
-        thisMonthStart.setDate(1); // Set to start of the month
-        thisMonthStart.setHours(0, 0, 0, 0);
+        const today = new Date();
+        const monthStart = new Date(today.getFullYear(), today.getMonth(), 1)
+        const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0)
 
-        const tMonth = await Order.find({ createdAt: { $gte: thisMonthStart } })
+        const tMonth = await Order.find({ createdAt: { $gte: monthStart, $lt:monthEnd } })
 
         orders.today = tDay
         orders.thisWeek = tWeek
@@ -462,6 +462,7 @@ app.get("/admin-orders-by-data", async (req, res) => {
         res.status(200).json(orders)
     }
     catch (error) {
+        console.log("error in /admin-orders-by-data : ", error)
         res.status(500).json("error from /admin-order-details-by-data *** ", error)
     }
 })
