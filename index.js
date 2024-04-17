@@ -391,6 +391,7 @@ app.post("/checkout-customer", async (req, res) => {
 
     } catch (error) {
         console.log("error in /checkout-customer ***", error)
+        res.status(500).json(error)
     }
 })
 
