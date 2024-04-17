@@ -383,7 +383,7 @@ app.post("/checkout-customer", async (req, res) => {
             mode: "payment",
             customer_email: email,
             success_url: process.env.SUCCESS_URL,
-            cancel_url: process.env.PUBLIC_URL,
+            cancel_url: process.env.CANCEL_URL,
             metadata: { orderId: order._id.toString(), test: " ok " }
         })
 
@@ -548,10 +548,10 @@ app.get("/client-orders/:email", async (req, res) => {
 
 // this part is for node js 
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log("server is running on port, ", port)
-});
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => {
+//     console.log("server is running on port, ", port)
+// });
 
 // this part is for firebase
-// exports.app = functions.https.onRequest(app)
+exports.app = functions.https.onRequest(app)
