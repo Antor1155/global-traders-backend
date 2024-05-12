@@ -493,7 +493,9 @@ app.post(
       }
     } catch (err) {
       console.log("error happened in stripe webhook ***", err);
-      response.status(400).send(`Webhook Error: ${err.message}`);
+      response
+        .status(400)
+        .send(`Webhook Error: ${request.originalUrl} ***** ${err.message}`);
       return;
     }
 
