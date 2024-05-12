@@ -23,7 +23,13 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 const conditionalJsonParser = (request, response, next) => {
   if (request.originalUrl.startsWith("/webhook")) {
     // If the route starts with "/webhook," don't parse JSON.
-    return next();
+    request.body = ""; // Empty the body
+    request.on("data", (chunk) => {
+      request.body += chunk.toString(); // Concatenate chunks into raw body
+    });
+    request.on("end", () => {
+      next();
+    });
   }
   express.json()(request, response, next);
 };
@@ -456,51 +462,47 @@ app.get("/admin-orders-by-data", async (req, res) => {
 });
 
 // stripe webhook to update order status
-app.post(
-  "/webhook",
-  express.raw({ type: "application/json" }),
-  async (request, response) => {
-    connectToDb();
-    const endpointSecret = process.env.STRIPE_SECRET;
-    const sig = request.headers["stripe-signature"];
+app.post("/webhook", async (request, response) => {
+  connectToDb();
+  const endpointSecret = process.env.STRIPE_SECRET;
+  const sig = request.headers["stripe-signature"];
 
-    let event;
+  let event;
 
-    try {
-      event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+  try {
+    event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
 
-      // Handle the event
-      switch (event.type) {
-        case "checkout.session.completed":
-          const data = event.data.object;
-          const orderId = data.metadata.orderId;
-          const paid = data.payment_status;
+    // Handle the event
+    switch (event.type) {
+      case "checkout.session.completed":
+        const data = event.data.object;
+        const orderId = data.metadata.orderId;
+        const paid = data.payment_status;
 
-          console.log(orderId, paid, "*** status of the order");
+        console.log(orderId, paid, "*** status of the order");
 
-          if (orderId && paid === "paid") {
-            await Order.findByIdAndUpdate(orderId, {
-              paid: true,
-              status: "Processing",
-            });
-          }
+        if (orderId && paid === "paid") {
+          await Order.findByIdAndUpdate(orderId, {
+            paid: true,
+            status: "Processing",
+          });
+        }
 
-          // Then define and call a function to handle the event payment_intent.succeeded
-          break;
-        // ... handle other event types
-        default:
-          console.log(`Unhandled event type ${event.type}`);
-      }
-    } catch (err) {
-      console.log("error happened in stripe webhook ***", err);
-      response.status(400).send(`Webhook Error: ${err.message}`);
-      return;
+        // Then define and call a function to handle the event payment_intent.succeeded
+        break;
+      // ... handle other event types
+      default:
+        console.log(`Unhandled event type ${event.type}`);
     }
-
-    // Return a 200 response to acknowledge receipt of the event
-    response.send("stripe connection success");
+  } catch (err) {
+    console.log("error happened in stripe webhook ***", err.message);
+    response.status(400).send(`Webhook Error: ${err.message}`);
+    return;
   }
-);
+
+  // Return a 200 response to acknowledge receipt of the event
+  response.send("stripe connection success");
+});
 
 app.post("/update-order-status", async (req, res) => {
   const { orderId, status } = req.body;
