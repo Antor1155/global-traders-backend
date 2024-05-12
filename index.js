@@ -1,4 +1,5 @@
 const express = require("express");
+const { Resend } = require("resend");
 const cors = require("cors");
 const app = express();
 app.use(cors());
@@ -18,24 +19,19 @@ const { error } = require("firebase-functions/logger");
 const AddForm = require("./schema/addForm");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
+const endpointSecret = process.env.STRIPE_ENDPOINTSECRET;
+
+const resend = new Resend(process.env.RESEND_KEY);
 
 // Create a custom middleware to conditionally parse JSON request body.
-const conditionalJsonParser = (request, response, next) => {
-  if (request.originalUrl.startsWith("/webhook")) {
-    // If the route starts with "/webhook," don't parse JSON.
-    request.body = ""; // Empty the body
-    request.on("data", (chunk) => {
-      request.body += chunk.toString(); // Concatenate chunks into raw body
-    });
-    request.on("end", () => {
-      next();
-    });
-  }
-  express.json()(request, response, next);
-};
-
 // Apply the custom middleware globally.
-app.use(conditionalJsonParser);
+app.use((req, res, next) => {
+  if (req.originalUrl === "/webhook") {
+    next();
+  } else {
+    express.json()(req, res, next);
+  }
+});
 
 // when asked for all catagories
 app.get("/catagory", async (req, res) => {
@@ -391,6 +387,62 @@ app.post("/checkout-customer", async (req, res) => {
   }
 });
 
+// stripe webhook to update order status
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  async (request, response) => {
+    connectToDb();
+    const sig = request.headers["stripe-signature"];
+
+    let event;
+
+    try {
+      event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+
+      // Handle the event
+      switch (event.type) {
+        case "checkout.session.completed":
+          const data = event.data.object;
+          const orderId = data.metadata.orderId;
+          const paid = data.payment_status;
+
+          if (orderId && paid === "paid") {
+            await Order.findByIdAndUpdate(orderId, {
+              paid: true,
+              status: "Processing",
+            });
+
+            // sending emails to globaltradersww2@gmail.com to confirm order
+            await resend.emails.send({
+              from: "GT <orders@globaltraders-usa.com>",
+              to: ["globaltradersww2@gmail.com"],
+              subject: "New order on Global Traders",
+              html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
+            });
+          }
+
+          console.log(orderId, paid, "*** status of the order");
+
+          // send email to customer
+
+          // Then define and call a function to handle the event payment_intent.succeeded
+          break;
+        // ... handle other event types
+        default:
+          console.log(`Unhandled event type ${event.type}`);
+      }
+    } catch (err) {
+      console.log("error happened in stripe webhook ***", err.message);
+      response.status(400).send(`**Error: : ${err.message}`);
+      return;
+    }
+
+    // Return a 200 response to acknowledge receipt of the event
+    response.send("stripe connection success");
+  }
+);
+
 //get all orders based on different catagory
 app.get("/admin-orders/:status", async (req, res) => {
   const status = req.params.status;
@@ -459,49 +511,6 @@ app.get("/admin-orders-by-data", async (req, res) => {
     console.log("error in /admin-orders-by-data : ", error);
     res.status(500).json("error from /admin-order-details-by-data *** ", error);
   }
-});
-
-// stripe webhook to update order status
-app.post("/webhook", async (request, response) => {
-  connectToDb();
-  const endpointSecret = process.env.STRIPE_SECRET;
-  const sig = request.headers["stripe-signature"];
-
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-
-    // Handle the event
-    switch (event.type) {
-      case "checkout.session.completed":
-        const data = event.data.object;
-        const orderId = data.metadata.orderId;
-        const paid = data.payment_status;
-
-        console.log(orderId, paid, "*** status of the order");
-
-        if (orderId && paid === "paid") {
-          await Order.findByIdAndUpdate(orderId, {
-            paid: true,
-            status: "Processing",
-          });
-        }
-
-        // Then define and call a function to handle the event payment_intent.succeeded
-        break;
-      // ... handle other event types
-      default:
-        console.log(`Unhandled event type ${event.type}`);
-    }
-  } catch (err) {
-    console.log("error happened in stripe webhook ***", err.message);
-    response.status(400).send(`Webhook Error: ${err.message}`);
-    return;
-  }
-
-  // Return a 200 response to acknowledge receipt of the event
-  response.send("stripe connection success");
 });
 
 app.post("/update-order-status", async (req, res) => {
