@@ -1,0 +1,94 @@
+[debug] [2024-05-18T06:34:41.536Z] ----------------------------------------------------------------------
+[debug] [2024-05-18T06:34:41.537Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mdant\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-05-18T06:34:41.538Z] CLI Version:   13.7.0
+[debug] [2024-05-18T06:34:41.538Z] Platform:      win32
+[debug] [2024-05-18T06:34:41.538Z] Node Version:  v18.18.0
+[debug] [2024-05-18T06:34:41.539Z] Time:          Sat May 18 2024 12:34:41 GMT+0600 (Bangladesh Standard Time)
+[debug] [2024-05-18T06:34:41.539Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-18T06:34:41.624Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-18T06:34:41.624Z] > authorizing via signed-in user (globaltradersww2@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2024-05-18T06:34:41.632Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-18T06:34:41.633Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-05-18T06:34:41.638Z] [hub] writing locator at C:\Users\mdant\AppData\Local\Temp\hub-globaltraders-3f62a.json
+[debug] [2024-05-18T06:34:41.648Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-18T06:34:41.648Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-18T06:34:41.648Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2024-05-18T06:34:41.652Z] defaultcredentials: writing to file C:\Users\mdant\AppData\Roaming\firebase\globaltradersww2_gmail_com_application_default_credentials.json
+[debug] [2024-05-18T06:34:41.661Z] Setting GAC to C:\Users\mdant\AppData\Roaming\firebase\globaltradersww2_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\mdant\\AppData\\Roaming\\firebase\\globaltradersww2_gmail_com_application_default_credentials.json"}}
+[debug] [2024-05-18T06:34:41.663Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig [none]
+[debug] [2024-05-18T06:34:44.918Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig 200
+[debug] [2024-05-18T06:34:44.918Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig {"projectId":"globaltraders-3f62a","storageBucket":"globaltraders-3f62a.appspot.com","locationId":"us-central"}
+[debug] [2024-05-18T06:34:44.934Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-05-18T06:34:44.934Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-05-18T06:34:44.934Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\mdant\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\mdant\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-05-18T06:34:45.053Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-05-18T06:34:45.054Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "D:\Coding\SEG\global-traders-backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Coding\\SEG\\global-traders-backend\" for Cloud Functions..."}}
+[debug] [2024-05-18T06:34:45.202Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2024-05-18T06:34:46.327Z] > [functions] package.json contents: {
+  "name": "golbal-traders-server-side",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "firebase-emulator": "firebase emulators:start"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.8.0",
+    "mongoose": "^7.4.5",
+    "nodemon": "^3.0.1",
+    "resend": "^3.2.0",
+    "stripe": "^13.7.0"
+  }
+}
+[debug] [2024-05-18T06:34:46.327Z] Building nodejs source
+[debug] [2024-05-18T06:34:46.328Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
+[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-05-18T06:34:46.330Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-18T06:34:46.335Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8855
+
+[debug] [2024-05-18T06:34:47.060Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] +  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
+[info] +  functions[us-central1-app]: http function initialized (http://127.0.0.1:5001/globaltraders-3f62a/us-central1/app). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/globaltraders-3f62a/us-central1/app)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

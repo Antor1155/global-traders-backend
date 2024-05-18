@@ -18,8 +18,8 @@ const AvailableCatagories = require("./schema/availableCatagories");
 const { error } = require("firebase-functions/logger");
 const AddForm = require("./schema/addForm");
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET);
-const endpointSecret = process.env.STRIPE_ENDPOINTSECRET;
+const stripe = require("stripe")(process.env.TEST_SECRET);
+const endpointSecret = process.env.TEST_ENDPOINTSECRET;
 
 const resend = new Resend(process.env.RESEND_KEY);
 
@@ -32,6 +32,62 @@ app.use((req, res, next) => {
     express.json()(req, res, next);
   }
 });
+
+// stripe webhook to update order status
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  async (request, response) => {
+    connectToDb();
+    const sig = request.headers["stripe-signature"];
+
+    let event;
+
+    try {
+      event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+
+      // Handle the event
+      switch (event.type) {
+        case "checkout.session.completed":
+          const data = event.data.object;
+          const orderId = data.metadata.orderId;
+          const paid = data.payment_status;
+
+          if (orderId && paid === "paid") {
+            await Order.findByIdAndUpdate(orderId, {
+              paid: true,
+              status: "Processing",
+            });
+
+            // sending emails to globaltradersww2@gmail.com to confirm order
+            await resend.emails.send({
+              from: "GT <orders@globaltraders-usa.com>",
+              to: ["globaltradersww2@gmail.com"],
+              subject: "New order on Global Traders",
+              html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
+            });
+          }
+
+          console.log(orderId, paid, "*** status of the order");
+
+          // send email to customer
+
+          // Then define and call a function to handle the event payment_intent.succeeded
+          break;
+        // ... handle other event types
+        default:
+          console.log(`Unhandled event type ${event.type}`);
+      }
+    } catch (err) {
+      console.log("error happened in stripe webhook ***", err.message);
+      response.status(400).send(`**Error: : ${err.message}`);
+      return;
+    }
+
+    // Return a 200 response to acknowledge receipt of the event
+    response.send("stripe connection success");
+  }
+);
 
 // when asked for all catagories
 app.get("/catagory", async (req, res) => {
@@ -386,62 +442,6 @@ app.post("/checkout-customer", async (req, res) => {
     res.status(500).json(error);
   }
 });
-
-// stripe webhook to update order status
-app.post(
-  "/webhook",
-  express.raw({ type: "application/json" }),
-  async (request, response) => {
-    connectToDb();
-    const sig = request.headers["stripe-signature"];
-
-    let event;
-
-    try {
-      event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-
-      // Handle the event
-      switch (event.type) {
-        case "checkout.session.completed":
-          const data = event.data.object;
-          const orderId = data.metadata.orderId;
-          const paid = data.payment_status;
-
-          if (orderId && paid === "paid") {
-            await Order.findByIdAndUpdate(orderId, {
-              paid: true,
-              status: "Processing",
-            });
-
-            // sending emails to globaltradersww2@gmail.com to confirm order
-            await resend.emails.send({
-              from: "GT <orders@globaltraders-usa.com>",
-              to: ["globaltradersww2@gmail.com"],
-              subject: "New order on Global Traders",
-              html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
-            });
-          }
-
-          console.log(orderId, paid, "*** status of the order");
-
-          // send email to customer
-
-          // Then define and call a function to handle the event payment_intent.succeeded
-          break;
-        // ... handle other event types
-        default:
-          console.log(`Unhandled event type ${event.type}`);
-      }
-    } catch (err) {
-      console.log("error happened in stripe webhook ***", err.message);
-      response.status(400).send(`**Error: : ${err.message}`);
-      return;
-    }
-
-    // Return a 200 response to acknowledge receipt of the event
-    response.send("stripe connection success");
-  }
-);
 
 //get all orders based on different catagory
 app.get("/admin-orders/:status", async (req, res) => {
