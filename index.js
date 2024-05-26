@@ -1,10 +1,10 @@
 const express = require("express");
 const { Resend } = require("resend");
 const cors = require("cors");
+const indexRouter = require("./routes/index");
+
 const app = express();
 app.use(cors());
-
-require("dotenv").config();
 
 // for firebase-function upload only
 const functions = require("firebase-functions");
@@ -23,71 +23,80 @@ const endpointSecret = process.env.TEST_ENDPOINTSECRET;
 
 const resend = new Resend(process.env.RESEND_KEY);
 
-// Create a custom middleware to conditionally parse JSON request body.
-// Apply the custom middleware globally.
-app.use((req, res, next) => {
-  if (req.originalUrl === "/webhook") {
-    next();
-  } else {
-    express.json()(req, res, next);
-  }
-});
+require("dotenv").config();
+
+// using middle ware to access raw body
+app.use(
+  express.json({
+    verify: (req, res, buf) => {
+      req.rawBody = buf;
+    },
+  })
+);
+
+app.use(indexRouter);
 
 // stripe webhook to update order status
-app.post(
-  "/webhook",
-  express.raw({ type: "application/json" }),
-  async (request, response) => {
-    connectToDb();
-    const sig = request.headers["stripe-signature"];
+// app.post("/webhook", async (request, response) => {
+//   connectToDb();
+//   const sig = request.headers["stripe-signature"];
 
-    let event;
+//   // console.log(request.rawBody);
 
-    try {
-      event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+//   let event;
 
-      // Handle the event
-      switch (event.type) {
-        case "checkout.session.completed":
-          const data = event.data.object;
-          const orderId = data.metadata.orderId;
-          const paid = data.payment_status;
+//   try {
+//     event = stripe.webhooks.constructEvent(
+//       request.rawBody,
+//       sig,
+//       endpointSecret
+//     );
 
-          if (orderId && paid === "paid") {
-            await Order.findByIdAndUpdate(orderId, {
-              paid: true,
-              status: "Processing",
-            });
+//     // Handle the event
+//     switch (event.type) {
+//       case "checkout.session.completed":
+//         const data = event.data.object;
+//         const orderId = data.metadata.orderId;
+//         const paid = data.payment_status;
 
-            // sending emails to globaltradersww2@gmail.com to confirm order
-            await resend.emails.send({
-              from: "GT <orders@globaltraders-usa.com>",
-              to: ["globaltradersww2@gmail.com"],
-              subject: "New order on Global Traders",
-              html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
-            });
-          }
+//         if (orderId && paid === "paid") {
+//           await Order.findByIdAndUpdate(orderId, {
+//             paid: true,
+//             status: "Processing",
+//           });
 
-          console.log(orderId, paid, "*** status of the order");
+//           // sending emails to globaltradersww2@gmail.com to confirm order
+//           await resend.emails.send({
+//             from: "GT <orders@globaltraders-usa.com>",
+//             to: ["globaltradersww2@gmail.com"],
+//             subject: "New order on Global Traders",
+//             html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
+//           });
+//         }
 
-          // send email to customer
+//         console.log(orderId, paid, "*** status of the order");
 
-          // Then define and call a function to handle the event payment_intent.succeeded
-          break;
-        // ... handle other event types
-        default:
-          console.log(`Unhandled event type ${event.type}`);
-      }
-    } catch (err) {
-      console.log("error happened in stripe webhook ***", err.message);
-      response.status(400).send(`**Error: : ${err.message}`);
-      return;
-    }
+//         // send email to customer
 
-    // Return a 200 response to acknowledge receipt of the event
-    response.send("stripe connection success");
-  }
-);
+//         // Then define and call a function to handle the event payment_intent.succeeded
+//         break;
+//       // ... handle other event types
+//       default:
+//         console.log(`Unhandled event type ${event.type}`);
+//     }
+//   } catch (err) {
+//     console.log("error happened in stripe webhook ***", err.message);
+//     response
+//       .status(400)
+//       .send(
+//         `**Error: : ${err.message} ///// envs: ${process.env.TEST_ENDPOINTSECRET}`
+//       );
+//     return;
+//   }
+
+//   // Return a 200 response to acknowledge receipt of the event
+//   response.send("stripe connection success");
+// });
 
 // when asked for all catagories
 app.get("/catagory", async (req, res) => {
@@ -323,125 +332,127 @@ app.post("/cart", async (req, res) => {
   }
 });
 
+// ********************************************
 // checkout page backend to send user to stripe page and return back
-app.post("/checkout-customer", async (req, res) => {
-  try {
-    connectToDb();
-    const {
-      name,
-      email,
-      phone,
-      city,
-      postal,
-      street,
-      country,
-      orders,
-      shipping,
-    } = req.body;
-    const uniqueOrders = [...new Set(orders)];
-    const productsInfo = await SingleVariation.find({ _id: uniqueOrders });
 
-    let line_items = [];
+// app.post("/checkout-customer", async (req, res) => {
+//   try {
+//     connectToDb();
+//     const {
+//       name,
+//       email,
+//       phone,
+//       city,
+//       postal,
+//       street,
+//       country,
+//       orders,
+//       shipping,
+//     } = req.body;
+//     const uniqueOrders = [...new Set(orders)];
+//     const productsInfo = await SingleVariation.find({ _id: uniqueOrders });
 
-    for (const id of uniqueOrders) {
-      const info = productsInfo.find((p) => p._id.toString() === id);
-      const quantity = orders.filter((i) => i === id)?.length || 0;
+//     let line_items = [];
 
-      if (quantity > 0 && productsInfo) {
-        line_items.push({
-          quantity,
-          price_data: {
-            currency: "USD",
-            unit_amount: info?.price * 100,
-            product_data: {
-              name: info?.productName,
-              description: `${info?.color?.name} ${info?.condition} ${info?.storage}`,
-              images: [info?.image],
-              metadata: {
-                productId: info?._id,
-                quantity,
-                totalPaid: info?.price * quantity,
-              },
-            },
-          },
-        });
-      }
-    }
+//     for (const id of uniqueOrders) {
+//       const info = productsInfo.find((p) => p._id.toString() === id);
+//       const quantity = orders.filter((i) => i === id)?.length || 0;
 
-    // adding price for shipping
-    if (shipping === "priority") {
-      line_items.push({
-        quantity: 1,
-        price_data: {
-          currency: "USD",
-          unit_amount: 10 * 100,
-          product_data: {
-            name: "priority shipping",
-            metadata: {
-              totalPaid: 10,
-            },
-          },
-        },
-      });
-    } else if (shipping === "express") {
-      line_items.push({
-        quantity: 1,
-        price_data: {
-          currency: "USD",
-          unit_amount: 30 * 100,
-          product_data: {
-            name: "express shipping",
-            metadata: {
-              totalPaid: 30,
-            },
-          },
-        },
-      });
-    } else {
-      line_items.push({
-        quantity: 1,
-        price_data: {
-          currency: "USD",
-          unit_amount: 0 * 100,
-          product_data: {
-            name: "First Class shipping",
-            metadata: {
-              totalPaid: 0,
-            },
-          },
-        },
-      });
-    }
+//       if (quantity > 0 && productsInfo) {
+//         line_items.push({
+//           quantity,
+//           price_data: {
+//             currency: "USD",
+//             unit_amount: info?.price * 100,
+//             product_data: {
+//               name: info?.productName,
+//               description: `${info?.color?.name} ${info?.condition} ${info?.storage}`,
+//               images: [info?.image],
+//               metadata: {
+//                 productId: info?._id,
+//                 quantity,
+//                 totalPaid: info?.price * quantity,
+//               },
+//             },
+//           },
+//         });
+//       }
+//     }
 
-    const order = await Order.create({
-      line_items,
-      name,
-      email,
-      phone,
-      city,
-      postal,
-      street,
-      country,
-      shipping,
-      paid: false,
-      status: "payment failed",
-    });
+//     // adding price for shipping
+//     if (shipping === "priority") {
+//       line_items.push({
+//         quantity: 1,
+//         price_data: {
+//           currency: "USD",
+//           unit_amount: 10 * 100,
+//           product_data: {
+//             name: "priority shipping",
+//             metadata: {
+//               totalPaid: 10,
+//             },
+//           },
+//         },
+//       });
+//     } else if (shipping === "express") {
+//       line_items.push({
+//         quantity: 1,
+//         price_data: {
+//           currency: "USD",
+//           unit_amount: 30 * 100,
+//           product_data: {
+//             name: "express shipping",
+//             metadata: {
+//               totalPaid: 30,
+//             },
+//           },
+//         },
+//       });
+//     } else {
+//       line_items.push({
+//         quantity: 1,
+//         price_data: {
+//           currency: "USD",
+//           unit_amount: 0 * 100,
+//           product_data: {
+//             name: "First Class shipping",
+//             metadata: {
+//               totalPaid: 0,
+//             },
+//           },
+//         },
+//       });
+//     }
 
-    const session = await stripe.checkout.sessions.create({
-      line_items,
-      mode: "payment",
-      customer_email: email,
-      success_url: process.env.SUCCESS_URL,
-      cancel_url: process.env.CANCEL_URL,
-      metadata: { orderId: order._id.toString(), test: " ok " },
-    });
+//     const order = await Order.create({
+//       line_items,
+//       name,
+//       email,
+//       phone,
+//       city,
+//       postal,
+//       street,
+//       country,
+//       shipping,
+//       paid: false,
+//       status: "payment failed",
+//     });
 
-    res.json(session.url);
-  } catch (error) {
-    console.log("error in /checkout-customer ***", error);
-    res.status(500).json(error);
-  }
-});
+//     const session = await stripe.checkout.sessions.create({
+//       line_items,
+//       mode: "payment",
+//       customer_email: email,
+//       success_url: process.env.SUCCESS_URL,
+//       cancel_url: process.env.CANCEL_URL,
+//       metadata: { orderId: order._id.toString(), test: " ok " },
+//     });
+
+//     res.json(session.url);
+//   } catch (error) {
+//     console.log("error in /checkout-customer ***", error);
+//     res.status(500).json(error);
+//   }
+// });
 
 //get all orders based on different catagory
 app.get("/admin-orders/:status", async (req, res) => {
@@ -585,7 +596,7 @@ app.get("/all-products-single-variation", async (req, res) => {
 
 // this part is for node js
 
-// const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5001;
 // app.listen(port, () => {
 //   console.log("server is running on port, ", port);
 // });
