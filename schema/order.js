@@ -6,6 +6,7 @@ const statusEnum = [
   "Delivered",
   "Returned",
   "Refunded",
+  "payment failed",
 ];
 const paidWithEnum = ["Stripe", "Paypal"];
 const shippingEnum = ["first-class", "priority", "express"];

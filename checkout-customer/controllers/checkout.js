@@ -17,58 +17,32 @@ const testPaypalSecret =
 
 exports.paypalCheckout = async (req, res) => {
   try {
-    connectToDb();
-    const {
-      name,
-      email,
-      phone,
-      city,
-      postal,
-      street,
-      country,
-      orders,
-      shipping,
-    } = req.body;
+    const { order, totalPrice } = await exports.makeOrderObjAndTotal({
+      req,
+      paidWith: "Paypal",
+    });
 
-    const uniqueOrders = [...new Set(orders)];
-    const productsInfo = await SingleVariation.find({ _id: uniqueOrders });
+    const paypalOrder = await exports.createPaypalOrder(totalPrice);
 
-    const totlaItems = [];
-    let totalPrice = 0;
+    const paypalId = paypalOrder?.id;
 
-    // adding price for shipping
-    if (shipping === "priority") {
-      totlaItems.push({ shipping, price: 10, quantity: 1 });
-    } else if (shipping === "express") {
-      totlaItems.push({ shipping, price: 30, quantity: 1 });
+    if (paypalId) {
+      order.paypalId = paypalId;
+
+      await Order.create(order);
+
+      res.json(paypalOrder);
     } else {
-      totlaItems.push({ shipping, price: 0, quantity: 1 });
+      return res.status(400).send("paypal error getting order id");
     }
-
-    // const order = await Order.create({
-    //   line_items,
-    //   name,
-    //   email,
-    //   phone,
-    //   city,
-    //   postal,
-    //   street,
-    //   country,
-    //   shipping,
-    //   paid: false,
-    //   status: "payment failed",
-    // });
-
-    const order = await exports.createOrder();
-    res.json(order);
   } catch (error) {
     console.log("error in /checkout-customer ***", error);
-    res.status(500).json(error);
+    return res.status(500).json(error);
   }
 };
 
 // use the orders api to create an order
-exports.createOrder = async (totalprice = 1) => {
+exports.createPaypalOrder = async (totalprice) => {
   // create accessToken using your clientID and clientSecret
   // for the full stack example, please see the Standard Integration guide
   // https://developer.paypal.com/docs/multiparty/checkout/standard/integrate/
@@ -130,11 +104,7 @@ exports.generatePaypalAccessToken = async () => {
 
 exports.capturePaymnet = async (req, res) => {
   try {
-    console.log("hitting the capture route");
-
     const orderId = req.body?.orderID;
-
-    console.log("order id is : ", orderId);
 
     const accessToken = await exports.generatePaypalAccessToken();
 
@@ -155,7 +125,7 @@ exports.capturePaymnet = async (req, res) => {
 
     const responseData = await response.json();
 
-    console.log("capture  payment response : *** ", responseData);
+    // console.log("capture  payment response : *** ", responseData);
 
     // update order status to paid
     if (responseData?.status === "COMPLETED") {
@@ -168,15 +138,133 @@ exports.capturePaymnet = async (req, res) => {
   }
 };
 
+// **********************************************
+// we already designed order Schema accroding to stripe and used in different places in UI,
+
+// that's why designing order data like this way with line items
+exports.makeOrderObjAndTotal = async ({ req, paidWith }) => {
+  connectToDb();
+
+  const {
+    name,
+    email,
+    phone,
+    city,
+    postal,
+    street,
+    country,
+    orders,
+    shipping,
+  } = req.body;
+
+  const uniqueOrders = [...new Set(orders)];
+  const productsInfo = await SingleVariation.find({ _id: uniqueOrders });
+
+  let line_items = [];
+
+  for (const id of uniqueOrders) {
+    const info = productsInfo.find((p) => p._id.toString() === id);
+    const quantity = orders.filter((i) => i === id)?.length || 0;
+
+    if (quantity > 0 && productsInfo) {
+      line_items.push({
+        quantity,
+        price_data: {
+          currency: "USD",
+          unit_amount: info?.price * 100,
+          product_data: {
+            name: info?.productName,
+            description: `${info?.color?.name} ${info?.condition} ${info?.storage}`,
+            images: [info?.image],
+            metadata: {
+              productId: info?._id,
+              quantity,
+              totalPaid: info?.price * quantity,
+            },
+          },
+        },
+      });
+    }
+  }
+
+  // adding price for shipping
+  if (shipping === "priority") {
+    line_items.push({
+      quantity: 1,
+      price_data: {
+        currency: "USD",
+        unit_amount: 10 * 100,
+        product_data: {
+          name: "priority shipping",
+          metadata: {
+            totalPaid: 10.5,
+          },
+        },
+      },
+    });
+  } else if (shipping === "express") {
+    line_items.push({
+      quantity: 1,
+      price_data: {
+        currency: "USD",
+        unit_amount: 30 * 100,
+        product_data: {
+          name: "express shipping",
+          metadata: {
+            totalPaid: 30,
+          },
+        },
+      },
+    });
+  } else {
+    line_items.push({
+      quantity: 1,
+      price_data: {
+        currency: "USD",
+        unit_amount: 0 * 100,
+        product_data: {
+          name: "First Class shipping",
+          metadata: {
+            totalPaid: 0,
+          },
+        },
+      },
+    });
+  }
+
+  const order = {
+    line_items,
+    name,
+    email,
+    phone,
+    city,
+    postal,
+    street,
+    country,
+    shipping,
+    paid: false,
+    status: "payment failed",
+    paidWith,
+  };
+
+  const totalPrice = line_items.reduce(
+    (total, currentObj) =>
+      total + currentObj?.price_data?.product_data?.metadata?.totalPaid || 0,
+    0
+  );
+
+  return { order, totalPrice };
+};
+
 exports.updateOrder = async (paypalId) => {
   connectToDb();
 
-  const order = await Order.find({ paypalId: paypalId });
+  const order = await Order.findOne({ paypalId: paypalId });
 
   if (order.paid === false) {
     order.paid = true;
     order.status = "Processing";
 
-    order.save();
+    await order.save();
   }
 };
