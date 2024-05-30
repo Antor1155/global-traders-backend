@@ -3,17 +3,20 @@ const { connectToDb } = require("../../database");
 const Order = require("../../schema/order");
 const SingleVariation = require("../../schema/singleVariation");
 
-const endpoint_url = "https://api-m.sandbox.paypal.com";
+const endpoint_url =
+  process.env.ENVIRONMENT === "PRODUCTION"
+    ? process.env.PAYPAL_BASE_URL
+    : process.env.TEST_PAYPAL_BASE_URL;
 
-const paypalClientId =
-  "AT_MXMU47GDc97KqUMcD6fE9TzdSSE1mdcnt6Rz0W9Y7_Tk37UDnQonu3SJY3iAefBIN2EdbCcOBSFVE";
-const paypalClientSecret =
-  "ENHMU9OHuu7fZoXJKUg6iDOpz_F2RxHCNa7MDi_t7nvb76MfnfDedbj1ZRfLT7xW4LeqaAP6SDa_-Bz1";
+const clientID =
+  process.env.ENVIRONMENT === "PRODUCTION"
+    ? process.env.PAYPAL_CLIENT_ID
+    : process.env.TEST_PAYPAL_CLIENT_ID;
 
-const testPaypalId =
-  "AedV98QSLHo9mnixr3x1J2O5I0_P4ZN_lCVST3y12NYfswKZZrPx2jRfjwhyRWvr_Qe3Zpd1cSfpALFy";
-const testPaypalSecret =
-  "EI0A4akqfTgXsEZRRMZy1_Lge_74BS32w4_yuMMPWO7UZzROQmucyxCYvSoXEXXDpQHXPQAJytVOlht8";
+const clientSecret =
+  process.env.ENVIRONMENT === "PRODUCTION"
+    ? process.env.PAYPAL_SECRET
+    : process.env.TEST_PAYPAL_SECRET;
 
 exports.paypalCheckout = async (req, res) => {
   try {
@@ -85,10 +88,6 @@ exports.createPaypalOrder = async (totalprice) => {
 };
 
 exports.generatePaypalAccessToken = async () => {
-  const clientID = testPaypalId;
-
-  const clientSecret = testPaypalSecret;
-
   const response = await axios({
     url: endpoint_url + "/v1/oauth2/token",
     method: "post",
