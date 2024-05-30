@@ -1,19 +1,36 @@
 const { Schema, model, models } = require("mongoose");
 
-const OrderSchema = new Schema({
+const statusEnum = [
+  "Processing",
+  "Shipped",
+  "Delivered",
+  "Returned",
+  "Refunded",
+];
+const paidWithEnum = ["Stripe", "Paypal"];
+const shippingEnum = ["first-class", "priority", "express"];
+
+const OrderSchema = new Schema(
+  {
     line_items: Object,
-    name: String, 
-    email: String, 
-    phone: String, 
-    city: String, 
-    postal: String, 
-    street: String, 
-    country: String, 
-    shipping: String,
+    name: String,
+    email: String,
+    phone: String,
+    city: String,
+    postal: String,
+    street: String,
+    country: String,
+    shipping: { type: String, enum: shippingEnum },
     paid: Boolean,
-    status: String,
-}, {timestamps: true})
+    status: { type: String, enum: statusEnum },
+    paidWith: { type: String, enum: paidWithEnum },
+    paypalId: String,
+  },
+  { timestamps: true }
+);
 
-const Order = models?.Order || model("Order", OrderSchema)
+OrderSchema.index({ paypalId: 1 });
 
-module.exports = Order
+const Order = models?.Order || model("Order", OrderSchema);
+
+module.exports = Order;

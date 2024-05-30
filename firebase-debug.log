@@ -1,39 +1,44 @@
-[debug] [2024-05-26T20:32:07.950Z] ----------------------------------------------------------------------
-[debug] [2024-05-26T20:32:07.952Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mdant\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2024-05-26T20:32:07.952Z] CLI Version:   13.7.0
-[debug] [2024-05-26T20:32:07.953Z] Platform:      win32
-[debug] [2024-05-26T20:32:07.953Z] Node Version:  v18.18.0
-[debug] [2024-05-26T20:32:07.953Z] Time:          Mon May 27 2024 02:32:07 GMT+0600 (Bangladesh Standard Time)
-[debug] [2024-05-26T20:32:07.954Z] ----------------------------------------------------------------------
+[debug] [2024-05-30T20:09:49.806Z] ----------------------------------------------------------------------
+[debug] [2024-05-30T20:09:49.808Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mdant\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-05-30T20:09:49.808Z] CLI Version:   13.7.0
+[debug] [2024-05-30T20:09:49.808Z] Platform:      win32
+[debug] [2024-05-30T20:09:49.808Z] Node Version:  v18.18.0
+[debug] [2024-05-30T20:09:49.809Z] Time:          Fri May 31 2024 02:09:49 GMT+0600 (Bangladesh Standard Time)
+[debug] [2024-05-30T20:09:49.809Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2024-05-26T20:32:08.055Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-05-26T20:32:08.056Z] > authorizing via signed-in user (globaltradersww2@gmail.com)
+[debug] [2024-05-30T20:09:49.920Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-30T20:09:49.920Z] > authorizing via signed-in user (globaltradersww2@gmail.com)
 [info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
-[debug] [2024-05-26T20:32:08.065Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-26T20:32:08.065Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2024-05-26T20:32:08.070Z] [hub] writing locator at C:\Users\mdant\AppData\Local\Temp\hub-globaltraders-3f62a.json
-[debug] [2024-05-26T20:32:08.082Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-26T20:32:08.082Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-26T20:32:08.082Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[debug] [2024-05-30T20:09:49.929Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-30T20:09:49.929Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-05-30T20:09:49.934Z] [hub] writing locator at C:\Users\mdant\AppData\Local\Temp\hub-globaltraders-3f62a.json
+[debug] [2024-05-30T20:09:49.946Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-30T20:09:49.946Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-30T20:09:49.946Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
 [warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
-[debug] [2024-05-26T20:32:08.086Z] defaultcredentials: writing to file C:\Users\mdant\AppData\Roaming\firebase\globaltradersww2_gmail_com_application_default_credentials.json
-[debug] [2024-05-26T20:32:08.098Z] Setting GAC to C:\Users\mdant\AppData\Roaming\firebase\globaltradersww2_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\mdant\\AppData\\Roaming\\firebase\\globaltradersww2_gmail_com_application_default_credentials.json"}}
-[debug] [2024-05-26T20:32:08.100Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig [none]
-[debug] [2024-05-26T20:32:10.572Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig 200
-[debug] [2024-05-26T20:32:10.572Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig {"projectId":"globaltraders-3f62a","storageBucket":"globaltraders-3f62a.appspot.com","locationId":"us-central"}
-[debug] [2024-05-26T20:32:10.593Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-26T20:32:10.593Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2024-05-26T20:32:10.593Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\mdant\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\mdant\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[debug] [2024-05-30T20:09:49.949Z] defaultcredentials: writing to file C:\Users\mdant\AppData\Roaming\firebase\globaltradersww2_gmail_com_application_default_credentials.json
+[debug] [2024-05-30T20:09:49.951Z] Setting GAC to C:\Users\mdant\AppData\Roaming\firebase\globaltradersww2_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\mdant\\AppData\\Roaming\\firebase\\globaltradersww2_gmail_com_application_default_credentials.json"}}
+[debug] [2024-05-30T20:09:49.952Z] > refreshing access token with scopes: []
+[debug] [2024-05-30T20:09:49.953Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-05-30T20:09:49.953Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-30T20:09:51.010Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-05-30T20:09:51.010Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-30T20:09:51.028Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig [none]
+[debug] [2024-05-30T20:09:52.382Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig 200
+[debug] [2024-05-30T20:09:52.382Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/globaltraders-3f62a/adminSdkConfig {"projectId":"globaltraders-3f62a","storageBucket":"globaltraders-3f62a.appspot.com","locationId":"us-central"}
+[debug] [2024-05-30T20:09:52.402Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-05-30T20:09:52.402Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-05-30T20:09:52.402Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\mdant\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\mdant\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2024-05-26T20:32:10.709Z] Web / API server started at 127.0.0.1:4000
+[debug] [2024-05-30T20:09:52.605Z] Web / API server started at 127.0.0.1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2024-05-26T20:32:10.710Z] Web / API server started at ::1:4000
+[debug] [2024-05-30T20:09:52.605Z] Web / API server started at ::1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
 [info] i  functions: Watching "D:\Coding\SEG\global-traders-backend" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Coding\\SEG\\global-traders-backend\" for Cloud Functions..."}}
-[debug] [2024-05-26T20:32:10.858Z] Validating nodejs source
+[debug] [2024-05-30T20:09:52.670Z] Validating nodejs source
 [warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
 [warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:32:12.183Z] > [functions] package.json contents: {
+[debug] [2024-05-30T20:09:54.677Z] > [functions] package.json contents: {
   "name": "golbal-traders-server-side",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
@@ -66,15 +71,15 @@
     "stripe": "^13.7.0"
   }
 }
-[debug] [2024-05-26T20:32:12.183Z] Building nodejs source
-[debug] [2024-05-26T20:32:12.183Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
+[debug] [2024-05-30T20:09:54.677Z] Building nodejs source
+[debug] [2024-05-30T20:09:54.677Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
 [warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:32:12.186Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:32:12.191Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8142
+[debug] [2024-05-30T20:09:54.680Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-30T20:09:54.685Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8220
 
-[debug] [2024-05-26T20:32:12.930Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2024-05-30T20:10:02.560Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
 [info] +  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
 [info] +  functions[us-central1-app]: http function initialized (http://127.0.0.1:5001/globaltraders-3f62a/us-central1/app). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/globaltraders-3f62a/us-central1/app)."}}
 [info] 
@@ -93,67 +98,174 @@
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
-[debug] [2024-05-26T20:32:15.118Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:32:15.118Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:32:15.119Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:32:15.118Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:32:15.120Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:32:15.123Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:32:15.124Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
+[debug] [2024-05-30T20:10:31.207Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:10:31.207Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:10:31.208Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:10:31.207Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:10:31.208Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/cart --> us-central1-app
+[debug] [2024-05-30T20:10:31.211Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:10:31.211Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart"}}
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:32:15.137Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
-[debug] [2024-05-26T20:32:15.138Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
-[debug] [2024-05-26T20:32:16.130Z] [runtime-status] [28620] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2024-05-26T20:32:16.131Z] [runtime-status] [28620] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:32:16.131Z] [runtime-status] [28620] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2024-05-26T20:32:16.132Z] [runtime-status] [28620] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:32:16.306Z] [runtime-status] [28620] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Checked functions.config() {\"config\":{}}"}}
-[debug] [2024-05-26T20:32:16.306Z] [runtime-status] [28620] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
-[debug] [2024-05-26T20:32:16.307Z] [runtime-status] [28620] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:32:16.308Z] [runtime-status] [28620] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2024-05-26T20:32:16.310Z] [runtime-status] [28620] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:32:16.310Z] [runtime-status] [28620] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
-[debug] [2024-05-26T20:32:16.764Z] [runtime-status] [28620] Functions runtime initialized. {"cwd":"D:\\Coding\\SEG\\global-traders-backend","node_version":"18.18.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Functions runtime initialized. {\"cwd\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\",\"node_version\":\"18.18.0\"}"}}
-[debug] [2024-05-26T20:32:16.765Z] [runtime-status] [28620] Listening to port: \\?\pipe\fire_emu_321d72ff37c013ce {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28620] Listening to port: \\\\?\\pipe\\fire_emu_321d72ff37c013ce"}}
-[debug] [2024-05-26T20:32:16.770Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: IDLE"}}
-[debug] [2024-05-26T20:32:16.771Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[debug] [2024-05-30T20:10:31.220Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
+[debug] [2024-05-30T20:10:31.221Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
+[debug] [2024-05-30T20:10:32.171Z] [runtime-status] [17748] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-05-30T20:10:32.171Z] [runtime-status] [17748] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-30T20:10:32.172Z] [runtime-status] [17748] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-05-30T20:10:32.172Z] [runtime-status] [17748] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-30T20:10:32.345Z] [runtime-status] [17748] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-05-30T20:10:32.345Z] [runtime-status] [17748] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
+[debug] [2024-05-30T20:10:32.346Z] [runtime-status] [17748] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-30T20:10:32.347Z] [runtime-status] [17748] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-05-30T20:10:32.377Z] [runtime-status] [17748] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-30T20:10:32.378Z] [runtime-status] [17748] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-05-30T20:10:32.819Z] [runtime-status] [17748] Functions runtime initialized. {"cwd":"D:\\Coding\\SEG\\global-traders-backend","node_version":"18.18.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Functions runtime initialized. {\"cwd\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\",\"node_version\":\"18.18.0\"}"}}
+[debug] [2024-05-30T20:10:32.819Z] [runtime-status] [17748] Listening to port: \\?\pipe\fire_emu_d115a3082d6ba273 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [17748] Listening to port: \\\\?\\pipe\\fire_emu_d115a3082d6ba273"}}
+[debug] [2024-05-30T20:10:32.862Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:10:32.862Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
 [info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:32:16.772Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: BUSY"}}
-[debug] [2024-05-26T20:32:16.777Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 5.2333ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 5.2333ms"}}
-[debug] [2024-05-26T20:32:16.777Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: IDLE"}}
-[debug] [2024-05-26T20:32:16.777Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:32:16.778Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:32:16.778Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:32:16.779Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:32:16.779Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:32:16.779Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:32:16.779Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:32:16.779Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:32:16.781Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:32:16.781Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:32:16.781Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[debug] [2024-05-30T20:10:32.863Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:10:32.867Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 4.6656ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 4.6656ms"}}
+[debug] [2024-05-30T20:10:32.868Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:10:32.868Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:10:32.868Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:10:32.869Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:10:32.870Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:10:32.869Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:10:32.870Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:10:32.869Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:10:32.870Z] Accepted request POST /globaltraders-3f62a/us-central1/app/cart --> us-central1-app
+[debug] [2024-05-30T20:10:32.872Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:10:32.872Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart"}}
+[debug] [2024-05-30T20:10:32.872Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
 [info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:32:16.781Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: BUSY"}}
-[info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
-[info] >    scope: 'https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks', {"user":"  scope: 'https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   scope: 'https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks',"}}
-[info] >    access_token: 'A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ', {"user":"  access_token: 'A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   access_token: 'A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ',"}}
-[info] >    token_type: 'Bearer', {"user":"  token_type: 'Bearer',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   token_type: 'Bearer',"}}
-[info] >    app_id: 'APP-80W284485P519543T', {"user":"  app_id: 'APP-80W284485P519543T',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   app_id: 'APP-80W284485P519543T',"}}
-[info] >    expires_in: 30781, {"user":"  expires_in: 30781,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   expires_in: 30781,"}}
-[info] >    nonce: '2024-05-26T20:05:21ZJOTnLKASnlHwGGhijHw2e6ymndIZtz_e1Hiw1iGZbak' {"user":"  nonce: '2024-05-26T20:05:21ZJOTnLKASnlHwGGhijHw2e6ymndIZtz_e1Hiw1iGZbak'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   nonce: '2024-05-26T20:05:21ZJOTnLKASnlHwGGhijHw2e6ymndIZtz_e1Hiw1iGZbak'"}}
+[debug] [2024-05-30T20:10:32.873Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:10:38.266Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 5393.597ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 5393.597ms"}}
+[debug] [2024-05-30T20:10:38.267Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:10:38.267Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:10:38.267Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:10:38.267Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:04.925Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:11:04.925Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:04.925Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:11:04.925Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:11:04.925Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/cart --> us-central1-app
+[debug] [2024-05-30T20:11:04.927Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:11:04.928Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart"}}
+[debug] [2024-05-30T20:11:04.928Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2024-05-30T20:11:04.928Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:11:04.931Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 2.9326ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 2.9326ms"}}
+[debug] [2024-05-30T20:11:04.932Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:11:04.932Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:11:04.932Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:11:04.932Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:04.933Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:11:04.932Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:04.933Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-30T20:11:04.932Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:11:04.933Z] Accepted request POST /globaltraders-3f62a/us-central1/app/cart --> us-central1-app
+[debug] [2024-05-30T20:11:04.935Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:11:04.935Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart"}}
+[debug] [2024-05-30T20:11:04.935Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2024-05-30T20:11:04.936Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:11:05.254Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 318.2726ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 318.2726ms"}}
+[debug] [2024-05-30T20:11:05.254Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:11:05.255Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:11:05.255Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:11:05.255Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:10.698Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-30T20:11:10.698Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:10.698Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-30T20:11:10.698Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:11:10.698Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
+[debug] [2024-05-30T20:11:10.700Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:11:10.700Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
+[debug] [2024-05-30T20:11:10.700Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2024-05-30T20:11:10.701Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:11:10.703Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 2.6778ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 2.6778ms"}}
+[debug] [2024-05-30T20:11:10.704Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:11:10.704Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:11:10.704Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:11:10.704Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:10.705Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-30T20:11:10.705Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:10.705Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-30T20:11:10.705Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:11:10.705Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
+[debug] [2024-05-30T20:11:10.707Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:11:10.707Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
+[debug] [2024-05-30T20:11:10.707Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2024-05-30T20:11:10.707Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:11:13.717Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 3009.6053ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 3009.6053ms"}}
+[debug] [2024-05-30T20:11:13.717Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:11:13.718Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:11:13.718Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:11:13.718Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:20.611Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer/capture-2024-05-30T20:11:20.611Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:20.611Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer/capture-2024-05-30T20:11:20.611Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:11:20.612Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer/capture --> us-central1-app
+[debug] [2024-05-30T20:11:20.613Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:11:20.613Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer/capture, mapping to path=/checkout-customer/capture {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer/capture, mapping to path=/checkout-customer/capture"}}
+[debug] [2024-05-30T20:11:20.614Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2024-05-30T20:11:20.614Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[debug] [2024-05-30T20:11:20.616Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 2.0621ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 2.0621ms"}}
+[debug] [2024-05-30T20:11:20.617Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:11:20.617Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:11:20.617Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:11:20.617Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:20.617Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer/capture-2024-05-30T20:11:20.617Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:11:20.618Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer/capture-2024-05-30T20:11:20.617Z"],"workRunningCount":1}
+[debug] [2024-05-30T20:11:20.618Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer/capture --> us-central1-app
+[debug] [2024-05-30T20:11:20.619Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-30T20:11:20.620Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer/capture, mapping to path=/checkout-customer/capture {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer/capture, mapping to path=/checkout-customer/capture"}}
+[debug] [2024-05-30T20:11:20.620Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2024-05-30T20:11:20.620Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: BUSY"}}
+[info] >  hitting the capture route {"user":"hitting the capture route","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m hitting the capture route"}}
+[info] >  order id is :  8XL61031PE7582245 {"user":"order id is :  8XL61031PE7582245","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m order id is :  8XL61031PE7582245"}}
+[info] >  capture  payment response : ***  { {"user":"capture  payment response : ***  {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m capture  payment response : ***  {"}}
+[info] >    id: '8XL61031PE7582245', {"user":"  id: '8XL61031PE7582245',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   id: '8XL61031PE7582245',"}}
+[info] >    status: 'COMPLETED', {"user":"  status: 'COMPLETED',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'COMPLETED',"}}
+[info] >    payment_source: { {"user":"  payment_source: {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   payment_source: {"}}
+[info] >      paypal: { {"user":"    paypal: {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     paypal: {"}}
+[info] >        email_address: 'sb-47aprs29489427@personal.example.com', {"user":"      email_address: 'sb-47aprs29489427@personal.example.com',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       email_address: 'sb-47aprs29489427@personal.example.com',"}}
+[info] >        account_id: 'M5M48RGUS8KZY', {"user":"      account_id: 'M5M48RGUS8KZY',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       account_id: 'M5M48RGUS8KZY',"}}
+[info] >        account_status: 'VERIFIED', {"user":"      account_status: 'VERIFIED',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       account_status: 'VERIFIED',"}}
+[info] >        name: [Object], {"user":"      name: [Object],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       name: [Object],"}}
+[info] >        address: [Object] {"user":"      address: [Object]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       address: [Object]"}}
+[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
+[info] >    }, {"user":"  },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   },"}}
+[info] >    purchase_units: [ {"user":"  purchase_units: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   purchase_units: ["}}
+[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
+[info] >        reference_id: 'd9f80740-38f0-11e8-b467-0ed5f89f718b', {"user":"      reference_id: 'd9f80740-38f0-11e8-b467-0ed5f89f718b',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       reference_id: 'd9f80740-38f0-11e8-b467-0ed5f89f718b',"}}
+[info] >        shipping: [Object], {"user":"      shipping: [Object],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       shipping: [Object],"}}
+[info] >        payments: [Object] {"user":"      payments: [Object]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       payments: [Object]"}}
+[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
+[info] >    ], {"user":"  ],","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   ],"}}
+[info] >    payer: { {"user":"  payer: {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   payer: {"}}
+[info] >      name: { given_name: 'John', surname: 'Doe' }, {"user":"    name: { given_name: 'John', surname: 'Doe' },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     name: { given_name: 'John', surname: 'Doe' },"}}
+[info] >      email_address: 'sb-47aprs29489427@personal.example.com', {"user":"    email_address: 'sb-47aprs29489427@personal.example.com',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     email_address: 'sb-47aprs29489427@personal.example.com',"}}
+[info] >      payer_id: 'M5M48RGUS8KZY', {"user":"    payer_id: 'M5M48RGUS8KZY',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     payer_id: 'M5M48RGUS8KZY',"}}
+[info] >      address: { country_code: 'US' } {"user":"    address: { country_code: 'US' }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     address: { country_code: 'US' }"}}
+[info] >    }, {"user":"  },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   },"}}
+[info] >    links: [ {"user":"  links: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   links: ["}}
+[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
+[info] >        href: 'https://api.sandbox.paypal.com/v2/checkout/orders/8XL61031PE7582245', {"user":"      href: 'https://api.sandbox.paypal.com/v2/checkout/orders/8XL61031PE7582245',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://api.sandbox.paypal.com/v2/checkout/orders/8XL61031PE7582245',"}}
+[info] >        rel: 'self', {"user":"      rel: 'self',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'self',"}}
+[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
+[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
+[info] >    ] {"user":"  ]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   ]"}}
 [info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[info] >  order :  { {"user":"order :  {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m order :  {"}}
-[info] >    error: 'invalid_token', {"user":"  error: 'invalid_token',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   error: 'invalid_token',"}}
-[info] >    error_description: 'Token signature verification failed' {"user":"  error_description: 'Token signature verification failed'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   error_description: 'Token signature verification failed'"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2024-05-26T20:32:22.916Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 6134.9076000000005ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 6134.9076000000005ms"}}
-[debug] [2024-05-26T20:32:22.917Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: IDLE"}}
-[debug] [2024-05-26T20:32:22.917Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:32:22.917Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:32:22.918Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:32:59.234Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\checkout.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:33:00.249Z] Validating nodejs source
+[debug] [2024-05-30T20:11:23.136Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 2516.0123ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 2516.0123ms"}}
+[debug] [2024-05-30T20:11:23.137Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: IDLE"}}
+[debug] [2024-05-30T20:11:23.137Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-30T20:11:23.137Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-30T20:11:23.137Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-30T20:14:46.421Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\checkout.js changed, reloading triggers"}}
+[debug] [2024-05-30T20:14:47.428Z] Validating nodejs source
 [warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
 [warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:33:01.638Z] > [functions] package.json contents: {
+[debug] [2024-05-30T20:14:49.725Z] > [functions] package.json contents: {
   "name": "golbal-traders-server-side",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
@@ -186,64 +298,25 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
     "stripe": "^13.7.0"
   }
 }
-[debug] [2024-05-26T20:33:01.638Z] Building nodejs source
-[debug] [2024-05-26T20:33:01.638Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
+[debug] [2024-05-30T20:14:49.725Z] Building nodejs source
+[debug] [2024-05-30T20:14:49.725Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
 [warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:33:01.640Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:33:01.644Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8957
+[debug] [2024-05-30T20:14:49.727Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-30T20:14:49.732Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
+[debug] [2024-05-30T20:14:49.736Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\checkout.js changed, reloading triggers"}}
+[info] Serving at port 8446
 
-[debug] [2024-05-26T20:33:02.404Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2024-05-30T20:14:50.477Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
 [info] +  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
-[debug] [2024-05-26T20:33:02.421Z] [worker-pool] Shutting down IDLE worker (us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-app)"}}
-[debug] [2024-05-26T20:33:02.421Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: FINISHING"}}
-[debug] [2024-05-26T20:33:02.429Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: exited"}}
-[debug] [2024-05-26T20:33:02.429Z] [worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-45876b95-7bb5-4d69-b13f-b9f65869c7da]: FINISHED"}}
-[debug] [2024-05-26T20:33:12.832Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:33:12.832Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:33:12.833Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:33:12.832Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:33:12.833Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:33:12.835Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:33:12.836Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:33:12.836Z] [worker-pool] Cleaned up workers for us-central1-app: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-app: 1 --> 0"}}
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:33:12.844Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
-[debug] [2024-05-26T20:33:12.845Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
-[debug] [2024-05-26T20:33:13.834Z] [runtime-status] [27280] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2024-05-26T20:33:13.836Z] [runtime-status] [27280] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:33:13.837Z] [runtime-status] [27280] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2024-05-26T20:33:13.837Z] [runtime-status] [27280] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:33:14.013Z] [runtime-status] [27280] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Checked functions.config() {\"config\":{}}"}}
-[debug] [2024-05-26T20:33:14.014Z] [runtime-status] [27280] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
-[debug] [2024-05-26T20:33:14.014Z] [runtime-status] [27280] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:33:14.015Z] [runtime-status] [27280] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2024-05-26T20:33:14.016Z] [runtime-status] [27280] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:33:14.017Z] [runtime-status] [27280] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
-[debug] [2024-05-26T20:33:14.470Z] [runtime-status] [27280] Functions runtime initialized. {"cwd":"D:\\Coding\\SEG\\global-traders-backend","node_version":"18.18.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Functions runtime initialized. {\"cwd\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\",\"node_version\":\"18.18.0\"}"}}
-[debug] [2024-05-26T20:33:14.471Z] [runtime-status] [27280] Listening to port: \\?\pipe\fire_emu_78184df6e8204b39 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [27280] Listening to port: \\\\?\\pipe\\fire_emu_78184df6e8204b39"}}
-[debug] [2024-05-26T20:33:14.557Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: IDLE"}}
-[debug] [2024-05-26T20:33:14.557Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:33:14.558Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: BUSY"}}
-[debug] [2024-05-26T20:33:14.562Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 4.5702ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 4.5702ms"}}
-[debug] [2024-05-26T20:33:14.563Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: IDLE"}}
-[debug] [2024-05-26T20:33:14.563Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:33:14.563Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:33:14.563Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:33:14.563Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:33:14.563Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:33:14.564Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:33:14.563Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:33:14.564Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:33:14.565Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:33:14.565Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:33:14.565Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:33:14.566Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: BUSY"}}
-[debug] [2024-05-26T20:33:18.357Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\checkout.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:33:19.363Z] Validating nodejs source
+[debug] [2024-05-30T20:14:50.494Z] [worker-pool] Shutting down IDLE worker (us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-app)"}}
+[debug] [2024-05-30T20:14:50.494Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: FINISHING"}}
+[debug] [2024-05-30T20:14:50.503Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: exited"}}
+[debug] [2024-05-30T20:14:50.503Z] [worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-5c6f4a2a-963f-4bb6-aa79-82475389cd99]: FINISHED"}}
+[debug] [2024-05-30T20:14:50.738Z] Validating nodejs source
 [warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
 [warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:33:20.699Z] > [functions] package.json contents: {
+[debug] [2024-05-30T20:14:52.784Z] > [functions] package.json contents: {
   "name": "golbal-traders-server-side",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
@@ -276,56 +349,21 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
     "stripe": "^13.7.0"
   }
 }
-[debug] [2024-05-26T20:33:20.699Z] Building nodejs source
-[debug] [2024-05-26T20:33:20.699Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
+[debug] [2024-05-30T20:14:52.784Z] Building nodejs source
+[debug] [2024-05-30T20:14:52.784Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
 [warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:33:20.700Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:33:20.703Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] >  { {"user":"{","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m {"}}
-[info] >    scope: 'https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks', {"user":"  scope: 'https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   scope: 'https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks',"}}
-[info] >    access_token: 'A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ', {"user":"  access_token: 'A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   access_token: 'A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ',"}}
-[info] >    token_type: 'Bearer', {"user":"  token_type: 'Bearer',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   token_type: 'Bearer',"}}
-[info] >    app_id: 'APP-80W284485P519543T', {"user":"  app_id: 'APP-80W284485P519543T',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   app_id: 'APP-80W284485P519543T',"}}
-[info] >    expires_in: 30723, {"user":"  expires_in: 30723,","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   expires_in: 30723,"}}
-[info] >    nonce: '2024-05-26T20:05:21ZJOTnLKASnlHwGGhijHw2e6ymndIZtz_e1Hiw1iGZbak' {"user":"  nonce: '2024-05-26T20:05:21ZJOTnLKASnlHwGGhijHw2e6ymndIZtz_e1Hiw1iGZbak'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   nonce: '2024-05-26T20:05:21ZJOTnLKASnlHwGGhijHw2e6ymndIZtz_e1Hiw1iGZbak'"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[info] Serving at port 8981
+[debug] [2024-05-30T20:14:52.785Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-30T20:14:52.789Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
+[debug] [2024-05-30T20:14:52.794Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\checkout.js changed, reloading triggers"}}
+[info] Serving at port 8760
 
-[debug] [2024-05-26T20:33:21.468Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2024-05-30T20:14:53.532Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
 [info] +  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
-[debug] [2024-05-26T20:33:21.485Z] [worker-pool] Marking BUSY worker to finish (us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Marking BUSY worker to finish (us-central1-app)"}}
-[debug] [2024-05-26T20:33:21.486Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: FINISHING"}}
-[info] >  order :  { {"user":"order :  {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m order :  {"}}
-[info] >    id: '4P047419089555721', {"user":"  id: '4P047419089555721',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   id: '4P047419089555721',"}}
-[info] >    status: 'PAYER_ACTION_REQUIRED', {"user":"  status: 'PAYER_ACTION_REQUIRED',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'PAYER_ACTION_REQUIRED',"}}
-[info] >    payment_source: { paypal: {} }, {"user":"  payment_source: { paypal: {} },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   payment_source: { paypal: {} },"}}
-[info] >    links: [ {"user":"  links: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   links: ["}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://api.sandbox.paypal.com/v2/checkout/orders/4P047419089555721', {"user":"      href: 'https://api.sandbox.paypal.com/v2/checkout/orders/4P047419089555721',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://api.sandbox.paypal.com/v2/checkout/orders/4P047419089555721',"}}
-[info] >        rel: 'self', {"user":"      rel: 'self',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'self',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      }, {"user":"    },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     },"}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://www.sandbox.paypal.com/checkoutnow?token=4P047419089555721', {"user":"      href: 'https://www.sandbox.paypal.com/checkoutnow?token=4P047419089555721',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://www.sandbox.paypal.com/checkoutnow?token=4P047419089555721',"}}
-[info] >        rel: 'payer-action', {"user":"      rel: 'payer-action',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'payer-action',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
-[info] >    ] {"user":"  ]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   ]"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2024-05-26T20:33:21.640Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 7074.7225ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 7074.7225ms"}}
-[debug] [2024-05-26T20:33:21.641Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: IDLE --> FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: IDLE --> FINISHING"}}
-[debug] [2024-05-26T20:33:21.641Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:33:21.641Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:33:21.641Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:33:21.651Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: exited"}}
-[debug] [2024-05-26T20:33:21.652Z] [worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-e9590b37-f1e3-4ad7-8c83-0a1d85f397af]: FINISHED"}}
-[debug] [2024-05-26T20:34:05.317Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\checkout.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:34:06.329Z] Validating nodejs source
+[debug] [2024-05-30T20:14:53.808Z] Validating nodejs source
 [warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
 [warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:34:07.693Z] > [functions] package.json contents: {
+[debug] [2024-05-30T20:14:55.874Z] > [functions] package.json contents: {
   "name": "golbal-traders-server-side",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
@@ -358,204 +396,21 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
     "stripe": "^13.7.0"
   }
 }
-[debug] [2024-05-26T20:34:07.693Z] Building nodejs source
-[debug] [2024-05-26T20:34:07.693Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
+[debug] [2024-05-30T20:14:55.874Z] Building nodejs source
+[debug] [2024-05-30T20:14:55.874Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
 [warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:34:07.694Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:34:07.697Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8482
+[debug] [2024-05-30T20:14:55.875Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-30T20:14:55.879Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8161
 
-[debug] [2024-05-26T20:34:08.473Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2024-05-30T20:14:56.614Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
 [info] +  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
-[debug] [2024-05-26T20:34:36.751Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:34:36.751Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:34:36.751Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:34:36.751Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:34:36.751Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:34:36.754Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:34:36.755Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:34:36.755Z] [worker-pool] Cleaned up workers for us-central1-app: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-app: 1 --> 0"}}
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:34:36.765Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
-[debug] [2024-05-26T20:34:36.765Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
-[debug] [2024-05-26T20:34:37.760Z] [runtime-status] [28028] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2024-05-26T20:34:37.761Z] [runtime-status] [28028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:34:37.762Z] [runtime-status] [28028] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2024-05-26T20:34:37.762Z] [runtime-status] [28028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:34:37.940Z] [runtime-status] [28028] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Checked functions.config() {\"config\":{}}"}}
-[debug] [2024-05-26T20:34:37.940Z] [runtime-status] [28028] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
-[debug] [2024-05-26T20:34:37.941Z] [runtime-status] [28028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:34:37.942Z] [runtime-status] [28028] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2024-05-26T20:34:37.944Z] [runtime-status] [28028] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.8.0","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.8.0\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
-[debug] [2024-05-26T20:34:37.944Z] [runtime-status] [28028] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.11.1","resolution":"D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.11.1\",\"resolution\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
-[debug] [2024-05-26T20:34:38.393Z] [runtime-status] [28028] Functions runtime initialized. {"cwd":"D:\\Coding\\SEG\\global-traders-backend","node_version":"18.18.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Functions runtime initialized. {\"cwd\":\"D:\\\\Coding\\\\SEG\\\\global-traders-backend\",\"node_version\":\"18.18.0\"}"}}
-[debug] [2024-05-26T20:34:38.393Z] [runtime-status] [28028] Listening to port: \\?\pipe\fire_emu_59c6dfeb40a58ae5 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [28028] Listening to port: \\\\?\\pipe\\fire_emu_59c6dfeb40a58ae5"}}
-[debug] [2024-05-26T20:34:38.507Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:34:38.507Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:34:38.508Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[debug] [2024-05-26T20:34:38.513Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 5.0743ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 5.0743ms"}}
-[debug] [2024-05-26T20:34:38.513Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:34:38.513Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:34:38.513Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:34:38.513Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:34:38.514Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:34:38.514Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:34:38.514Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:34:38.514Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:34:38.514Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:34:38.516Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:34:38.516Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:34:38.516Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:34:38.517Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[info] >  access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ {"user":"access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ"}}
-[info] >  order :  { {"user":"order :  {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m order :  {"}}
-[info] >    id: '3DU639661U322810H', {"user":"  id: '3DU639661U322810H',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   id: '3DU639661U322810H',"}}
-[info] >    status: 'PAYER_ACTION_REQUIRED', {"user":"  status: 'PAYER_ACTION_REQUIRED',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'PAYER_ACTION_REQUIRED',"}}
-[info] >    payment_source: { paypal: {} }, {"user":"  payment_source: { paypal: {} },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   payment_source: { paypal: {} },"}}
-[info] >    links: [ {"user":"  links: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   links: ["}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://api.sandbox.paypal.com/v2/checkout/orders/3DU639661U322810H', {"user":"      href: 'https://api.sandbox.paypal.com/v2/checkout/orders/3DU639661U322810H',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://api.sandbox.paypal.com/v2/checkout/orders/3DU639661U322810H',"}}
-[info] >        rel: 'self', {"user":"      rel: 'self',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'self',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      }, {"user":"    },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     },"}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://www.sandbox.paypal.com/checkoutnow?token=3DU639661U322810H', {"user":"      href: 'https://www.sandbox.paypal.com/checkoutnow?token=3DU639661U322810H',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://www.sandbox.paypal.com/checkoutnow?token=3DU639661U322810H',"}}
-[info] >        rel: 'payer-action', {"user":"      rel: 'payer-action',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'payer-action',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
-[info] >    ] {"user":"  ]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   ]"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2024-05-26T20:34:45.529Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 7012.3537ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 7012.3537ms"}}
-[debug] [2024-05-26T20:34:45.529Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:34:45.529Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:34:45.529Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:34:45.529Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:41.358Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-26T20:36:41.358Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:41.358Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-26T20:36:41.358Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:36:41.358Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/cart --> us-central1-app
-[debug] [2024-05-26T20:36:41.360Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:36:41.360Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart"}}
-[debug] [2024-05-26T20:36:41.361Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:36:41.361Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[debug] [2024-05-26T20:36:41.364Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 3.4994ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 3.4994ms"}}
-[debug] [2024-05-26T20:36:41.365Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:36:41.365Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:36:41.365Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:36:41.365Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:41.366Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-26T20:36:41.366Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:41.366Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/cart-2024-05-26T20:36:41.366Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:36:41.366Z] Accepted request POST /globaltraders-3f62a/us-central1/app/cart --> us-central1-app
-[debug] [2024-05-26T20:36:41.369Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:36:41.369Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/cart, mapping to path=/cart"}}
-[debug] [2024-05-26T20:36:41.369Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:36:41.369Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[debug] [2024-05-26T20:36:41.691Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 321.7307ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 321.7307ms"}}
-[debug] [2024-05-26T20:36:41.692Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:36:41.692Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:36:41.692Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:36:41.692Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:48.883Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:36:48.882Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:48.883Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:36:48.882Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:36:48.883Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:36:48.885Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:36:48.885Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:36:48.885Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:36:48.886Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[debug] [2024-05-26T20:36:48.888Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 1.9339ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 1.9339ms"}}
-[debug] [2024-05-26T20:36:48.888Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:36:48.889Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:36:48.889Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:36:48.889Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:48.890Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:36:48.889Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:36:48.890Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:36:48.889Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:36:48.890Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:36:48.892Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:36:48.892Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:36:48.892Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:36:48.893Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[info] >  access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ {"user":"access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ"}}
-[info] >  order :  { {"user":"order :  {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m order :  {"}}
-[info] >    id: '4C081738N6633142R', {"user":"  id: '4C081738N6633142R',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   id: '4C081738N6633142R',"}}
-[info] >    status: 'PAYER_ACTION_REQUIRED', {"user":"  status: 'PAYER_ACTION_REQUIRED',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'PAYER_ACTION_REQUIRED',"}}
-[info] >    payment_source: { paypal: {} }, {"user":"  payment_source: { paypal: {} },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   payment_source: { paypal: {} },"}}
-[info] >    links: [ {"user":"  links: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   links: ["}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://api.sandbox.paypal.com/v2/checkout/orders/4C081738N6633142R', {"user":"      href: 'https://api.sandbox.paypal.com/v2/checkout/orders/4C081738N6633142R',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://api.sandbox.paypal.com/v2/checkout/orders/4C081738N6633142R',"}}
-[info] >        rel: 'self', {"user":"      rel: 'self',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'self',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      }, {"user":"    },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     },"}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://www.sandbox.paypal.com/checkoutnow?token=4C081738N6633142R', {"user":"      href: 'https://www.sandbox.paypal.com/checkoutnow?token=4C081738N6633142R',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://www.sandbox.paypal.com/checkoutnow?token=4C081738N6633142R',"}}
-[info] >        rel: 'payer-action', {"user":"      rel: 'payer-action',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'payer-action',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
-[info] >    ] {"user":"  ]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   ]"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2024-05-26T20:36:51.398Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 2505.0229ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 2505.0229ms"}}
-[debug] [2024-05-26T20:36:51.398Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:36:51.398Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:36:51.398Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:36:51.398Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:49:34.104Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:49:34.104Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:49:34.104Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:49:34.104Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:49:34.104Z] Accepted request OPTIONS /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:49:34.106Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:49:34.106Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:49:34.106Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:49:34.107Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[debug] [2024-05-26T20:49:34.109Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 2.2317ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 2.2317ms"}}
-[debug] [2024-05-26T20:49:34.109Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:49:34.109Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:49:34.110Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:49:34.110Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:49:34.112Z] [work-queue] {"queuedWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:49:34.112Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:49:34.112Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/globaltraders-3f62a/us-central1/app/checkout-customer-2024-05-26T20:49:34.112Z"],"workRunningCount":1}
-[debug] [2024-05-26T20:49:34.112Z] Accepted request POST /globaltraders-3f62a/us-central1/app/checkout-customer --> us-central1-app
-[debug] [2024-05-26T20:49:34.114Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2024-05-26T20:49:34.114Z] [functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/globaltraders-3f62a/us-central1/app/checkout-customer, mapping to path=/checkout-customer"}}
-[debug] [2024-05-26T20:49:34.114Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
-[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
-[debug] [2024-05-26T20:49:34.115Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: BUSY"}}
-[info] >  access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ {"user":"access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m access_token :  A21AAK_EXPqiS_r4aXwgJJCMTXPzUEC7nvuXCrINhMvc1yv3FBNWLARZswfE1zY3IMuP010ILXj_GCi4IxqdaoYBxnRN9ztGQ"}}
-[info] >  order :  { {"user":"order :  {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m order :  {"}}
-[info] >    id: '5HV683587S453081F', {"user":"  id: '5HV683587S453081F',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   id: '5HV683587S453081F',"}}
-[info] >    status: 'PAYER_ACTION_REQUIRED', {"user":"  status: 'PAYER_ACTION_REQUIRED',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   status: 'PAYER_ACTION_REQUIRED',"}}
-[info] >    payment_source: { paypal: {} }, {"user":"  payment_source: { paypal: {} },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   payment_source: { paypal: {} },"}}
-[info] >    links: [ {"user":"  links: [","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   links: ["}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://api.sandbox.paypal.com/v2/checkout/orders/5HV683587S453081F', {"user":"      href: 'https://api.sandbox.paypal.com/v2/checkout/orders/5HV683587S453081F',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://api.sandbox.paypal.com/v2/checkout/orders/5HV683587S453081F',"}}
-[info] >        rel: 'self', {"user":"      rel: 'self',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'self',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      }, {"user":"    },","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     },"}}
-[info] >      { {"user":"    {","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     {"}}
-[info] >        href: 'https://www.sandbox.paypal.com/checkoutnow?token=5HV683587S453081F', {"user":"      href: 'https://www.sandbox.paypal.com/checkoutnow?token=5HV683587S453081F',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       href: 'https://www.sandbox.paypal.com/checkoutnow?token=5HV683587S453081F',"}}
-[info] >        rel: 'payer-action', {"user":"      rel: 'payer-action',","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       rel: 'payer-action',"}}
-[info] >        method: 'GET' {"user":"      method: 'GET'","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m       method: 'GET'"}}
-[info] >      } {"user":"    }","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m     }"}}
-[info] >    ] {"user":"  ]","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m   ]"}}
-[info] >  } {"user":"}","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m }"}}
-[debug] [2024-05-26T20:49:37.206Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
-[info] i  functions: Finished "us-central1-app" in 3091.8231ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 3091.8231ms"}}
-[debug] [2024-05-26T20:49:37.207Z] [worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-c81f16d7-14f8-40ef-822b-32fefe0b267b]: IDLE"}}
-[debug] [2024-05-26T20:49:37.207Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
-[debug] [2024-05-26T20:49:37.207Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
-[debug] [2024-05-26T20:49:37.207Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
-[debug] [2024-05-26T20:51:17.094Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\index.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:51:18.095Z] Validating nodejs source
+[debug] [2024-05-30T20:28:21.237Z] File D:\Coding\SEG\global-traders-backend\schema\order.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\schema\\order.js changed, reloading triggers"}}
+[debug] [2024-05-30T20:28:22.249Z] Validating nodejs source
 [warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
 [warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:51:20.267Z] > [functions] package.json contents: {
+[debug] [2024-05-30T20:28:24.565Z] > [functions] package.json contents: {
   "name": "golbal-traders-server-side",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
@@ -588,386 +443,11 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
     "stripe": "^13.7.0"
   }
 }
-[debug] [2024-05-26T20:51:20.267Z] Building nodejs source
-[debug] [2024-05-26T20:51:20.268Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
+[debug] [2024-05-30T20:28:24.565Z] Building nodejs source
+[debug] [2024-05-30T20:28:24.565Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
 [warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
 [info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:51:20.269Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:51:20.272Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8926
-
-[error] Error: Cannot find module './paymentCompleted'
-Require stack:
-- D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js
-- D:\Coding\SEG\global-traders-backend\routes\index.js
-- D:\Coding\SEG\global-traders-backend\index.js
-- D:\Coding\SEG\global-traders-backend\node_modules\firebase-functions\lib\runtime\loader.js
-- D:\Coding\SEG\global-traders-backend\node_modules\firebase-functions\lib\bin\firebase-functions.js
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1077:15)
-    at Module._load (node:internal/modules/cjs/loader:922:27)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:119:18)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js:4:26)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [
-    'D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\index.js',
-    'D:\\Coding\\SEG\\global-traders-backend\\routes\\index.js',
-    'D:\\Coding\\SEG\\global-traders-backend\\index.js',
-    'D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\runtime\\loader.js',
-    'D:\\Coding\\SEG\\global-traders-backend\\node_modules\\firebase-functions\\lib\\bin\\firebase-functions.js'
-  ]
-}
-
-[debug] [2024-05-26T20:51:20.800Z] Got response code 400; body Failed to generate manifest from function source: Error: Cannot find module './paymentCompleted'
-Require stack:
-- D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js
-- D:\Coding\SEG\global-traders-backend\routes\index.js
-- D:\Coding\SEG\global-traders-backend\index.js
-- D:\Coding\SEG\global-traders-backend\node_modules\firebase-functions\lib\runtime\loader.js
-- D:\Coding\SEG\global-traders-backend\node_modules\firebase-functions\lib\bin\firebase-functions.js
-[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
-[debug] [2024-05-26T20:52:34.650Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\index.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:52:35.657Z] Validating nodejs source
-[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:52:37.839Z] > [functions] package.json contents: {
-  "name": "golbal-traders-server-side",
-  "version": "1.0.0",
-  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "nodemon": "nodemon index.js",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "dev": "firebase emulators:start"
-  },
-  "engines": {
-    "node": "18"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.8.0",
-    "mongoose": "^7.4.5",
-    "nodemon": "^3.0.1",
-    "resend": "^3.2.0",
-    "stripe": "^13.7.0"
-  }
-}
-[debug] [2024-05-26T20:52:37.839Z] Building nodejs source
-[debug] [2024-05-26T20:52:37.839Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:52:37.840Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:52:37.844Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8529
-
-[error] TypeError: Router.use() requires a middleware function but got a Object
-    at Function.use (D:\Coding\SEG\global-traders-backend\node_modules\express\lib\router\index.js:469:13)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js:7:24)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:119:18)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\routes\index.js:2:26)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-
-[debug] [2024-05-26T20:52:38.373Z] Got response code 400; body Failed to generate manifest from function source: TypeError: Router.use() requires a middleware function but got a Object
-[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
-[debug] [2024-05-26T20:52:40.936Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\routes\paymentCompleted.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\paymentCompleted.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:52:41.937Z] Validating nodejs source
-[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:52:43.588Z] > [functions] package.json contents: {
-  "name": "golbal-traders-server-side",
-  "version": "1.0.0",
-  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "nodemon": "nodemon index.js",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "dev": "firebase emulators:start"
-  },
-  "engines": {
-    "node": "18"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.8.0",
-    "mongoose": "^7.4.5",
-    "nodemon": "^3.0.1",
-    "resend": "^3.2.0",
-    "stripe": "^13.7.0"
-  }
-}
-[debug] [2024-05-26T20:52:43.588Z] Building nodejs source
-[debug] [2024-05-26T20:52:43.588Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:52:43.589Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:52:43.592Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8925
-
-[error] TypeError: Router.use() requires a middleware function but got a Object
-    at Function.use (D:\Coding\SEG\global-traders-backend\node_modules\express\lib\router\index.js:469:13)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js:7:24)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:119:18)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\routes\index.js:2:26)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-
-[debug] [2024-05-26T20:52:44.120Z] Got response code 400; body Failed to generate manifest from function source: TypeError: Router.use() requires a middleware function but got a Object
-[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
-[debug] [2024-05-26T20:53:46.191Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\routes\paymentCompleted.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\paymentCompleted.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:53:47.205Z] Validating nodejs source
-[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:53:49.386Z] > [functions] package.json contents: {
-  "name": "golbal-traders-server-side",
-  "version": "1.0.0",
-  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "nodemon": "nodemon index.js",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "dev": "firebase emulators:start"
-  },
-  "engines": {
-    "node": "18"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.8.0",
-    "mongoose": "^7.4.5",
-    "nodemon": "^3.0.1",
-    "resend": "^3.2.0",
-    "stripe": "^13.7.0"
-  }
-}
-[debug] [2024-05-26T20:53:49.386Z] Building nodejs source
-[debug] [2024-05-26T20:53:49.386Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:53:49.387Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:53:49.391Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8810
-
-[error] ReferenceError: paymetCompleteProcess is not defined
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\paymentCompleted.js:3:18)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:119:18)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js:4:26)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-
-[debug] [2024-05-26T20:53:49.931Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: paymetCompleteProcess is not defined
-[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
-[debug] [2024-05-26T20:56:35.936Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\controllers\paypalCheckout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\controllers\\paypalCheckout.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:56:36.942Z] Validating nodejs source
-[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:56:39.102Z] > [functions] package.json contents: {
-  "name": "golbal-traders-server-side",
-  "version": "1.0.0",
-  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "nodemon": "nodemon index.js",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "dev": "firebase emulators:start"
-  },
-  "engines": {
-    "node": "18"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.8.0",
-    "mongoose": "^7.4.5",
-    "nodemon": "^3.0.1",
-    "resend": "^3.2.0",
-    "stripe": "^13.7.0"
-  }
-}
-[debug] [2024-05-26T20:56:39.102Z] Building nodejs source
-[debug] [2024-05-26T20:56:39.102Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:56:39.103Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:56:39.107Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8555
-
-[error] ReferenceError: paymetCompleteProcess is not defined
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\paymentCompleted.js:3:18)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:119:18)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js:4:26)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-
-[debug] [2024-05-26T20:56:39.637Z] Got response code 400; body Failed to generate manifest from function source: ReferenceError: paymetCompleteProcess is not defined
-[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
-[debug] [2024-05-26T20:58:26.630Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\routes\paymentCompleted.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\paymentCompleted.js changed, reloading triggers"}}
-[debug] [2024-05-26T20:58:27.637Z] Validating nodejs source
-[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T20:58:29.773Z] > [functions] package.json contents: {
-  "name": "golbal-traders-server-side",
-  "version": "1.0.0",
-  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "nodemon": "nodemon index.js",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "dev": "firebase emulators:start"
-  },
-  "engines": {
-    "node": "18"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.8.0",
-    "mongoose": "^7.4.5",
-    "nodemon": "^3.0.1",
-    "resend": "^3.2.0",
-    "stripe": "^13.7.0"
-  }
-}
-[debug] [2024-05-26T20:58:29.773Z] Building nodejs source
-[debug] [2024-05-26T20:58:29.773Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T20:58:29.774Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T20:58:29.778Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8093
-
-[error] Error: Route.post() requires a callback function but got a [object Object]
-    at Route.<computed> [as post] (D:\Coding\SEG\global-traders-backend\node_modules\express\lib\router\route.js:216:15)
-    at proto.<computed> [as post] (D:\Coding\SEG\global-traders-backend\node_modules\express\lib\router\index.js:521:19)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\paymentCompleted.js:4:8)
-    at Module._compile (node:internal/modules/cjs/loader:1256:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
-    at Module.load (node:internal/modules/cjs/loader:1119:32)
-    at Module._load (node:internal/modules/cjs/loader:960:12)
-    at Module.require (node:internal/modules/cjs/loader:1143:19)
-    at require (node:internal/modules/cjs/helpers:119:18)
-    at Object.<anonymous> (D:\Coding\SEG\global-traders-backend\checkout-customer\routes\index.js:4:26)
-
-[debug] [2024-05-26T20:58:30.308Z] Got response code 400; body Failed to generate manifest from function source: Error: Route.post() requires a callback function but got a [object Object]
-[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
-[debug] [2024-05-26T21:11:22.674Z] File D:\Coding\SEG\global-traders-backend\checkout-customer\routes\checkout.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File D:\\Coding\\SEG\\global-traders-backend\\checkout-customer\\routes\\checkout.js changed, reloading triggers"}}
-[debug] [2024-05-26T21:11:23.681Z] Validating nodejs source
-[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2024-05-26T21:11:25.074Z] > [functions] package.json contents: {
-  "name": "golbal-traders-server-side",
-  "version": "1.0.0",
-  "description": "��#\u0000 \u0000G\u0000l\u0000o\u0000b\u0000a\u0000l\u0000-\u0000t\u0000r\u0000a\u0000d\u0000e\u0000r\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "nodemon": "nodemon index.js",
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "dev": "firebase emulators:start"
-  },
-  "engines": {
-    "node": "18"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.8.0",
-    "firebase-functions": "^4.8.0",
-    "mongoose": "^7.4.5",
-    "nodemon": "^3.0.1",
-    "resend": "^3.2.0",
-    "stripe": "^13.7.0"
-  }
-}
-[debug] [2024-05-26T21:11:25.075Z] Building nodejs source
-[debug] [2024-05-26T21:11:25.075Z] Failed to find version of module node: reached end of search path D:\Coding\SEG\global-traders-backend\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "18". Using node@18 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2024-05-26T21:11:25.076Z] Could not find functions.yaml. Must use http discovery
-[debug] [2024-05-26T21:11:25.080Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
-[info] Serving at port 8443
+[debug] [2024-05-30T20:28:24.567Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-30T20:28:24.571Z] Found firebase-functions binary at 'D:\Coding\SEG\global-traders-backend\node_modules\.bin\firebase-functions'
+[info] Serving at port 8100
 
