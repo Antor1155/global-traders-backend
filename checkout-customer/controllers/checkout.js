@@ -2,6 +2,9 @@ const { default: axios } = require("axios");
 const { connectToDb } = require("../../database");
 const Order = require("../../schema/order");
 const SingleVariation = require("../../schema/singleVariation");
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_KEY);
 
 const endpoint_url =
   process.env.ENVIRONMENT === "PRODUCTION"
@@ -128,7 +131,7 @@ exports.capturePaymnet = async (req, res) => {
 
     // update order status to paid
     if (responseData?.status === "COMPLETED") {
-      exports.updateOrder(responseData.id);
+      exports.updateOrderPaid(responseData.id);
     }
 
     return res.json(responseData);
@@ -255,7 +258,7 @@ exports.makeOrderObjAndTotal = async ({ req, paidWith }) => {
   return { order, totalPrice };
 };
 
-exports.updateOrder = async (paypalId) => {
+exports.updateOrderPaid = async (paypalId) => {
   connectToDb();
 
   const order = await Order.findOne({ paypalId: paypalId });
@@ -265,5 +268,13 @@ exports.updateOrder = async (paypalId) => {
     order.status = "Processing";
 
     await order.save();
+
+    // sending emails to globaltradersww2@gmail.com to confirm order
+    await resend.emails.send({
+      from: "GT <orders@globaltraders-usa.com>",
+      to: ["globaltradersww2@gmail.com"],
+      subject: "New order on Global Traders",
+      html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${order._id}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
+    });
   }
 };
