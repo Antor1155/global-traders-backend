@@ -36,68 +36,6 @@ app.use(
 
 app.use(indexRouter);
 
-// stripe webhook to update order status
-// app.post("/webhook", async (request, response) => {
-//   connectToDb();
-//   const sig = request.headers["stripe-signature"];
-
-//   // console.log(request.rawBody);
-
-//   let event;
-
-//   try {
-//     event = stripe.webhooks.constructEvent(
-//       request.rawBody,
-//       sig,
-//       endpointSecret
-//     );
-
-//     // Handle the event
-//     switch (event.type) {
-//       case "checkout.session.completed":
-//         const data = event.data.object;
-//         const orderId = data.metadata.orderId;
-//         const paid = data.payment_status;
-
-//         if (orderId && paid === "paid") {
-//           await Order.findByIdAndUpdate(orderId, {
-//             paid: true,
-//             status: "Processing",
-//           });
-
-//           // sending emails to globaltradersww2@gmail.com to confirm order
-//           await resend.emails.send({
-//             from: "GT <orders@globaltraders-usa.com>",
-//             to: ["globaltradersww2@gmail.com"],
-//             subject: "New order on Global Traders",
-//             html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
-//           });
-//         }
-
-//         console.log(orderId, paid, "*** status of the order");
-
-//         // send email to customer
-
-//         // Then define and call a function to handle the event payment_intent.succeeded
-//         break;
-//       // ... handle other event types
-//       default:
-//         console.log(`Unhandled event type ${event.type}`);
-//     }
-//   } catch (err) {
-//     console.log("error happened in stripe webhook ***", err.message);
-//     response
-//       .status(400)
-//       .send(
-//         `**Error: : ${err.message} ///// envs: ${process.env.TEST_ENDPOINTSECRET}`
-//       );
-//     return;
-//   }
-
-//   // Return a 200 response to acknowledge receipt of the event
-//   response.send("stripe connection success");
-// });
-
 // when asked for all catagories
 app.get("/catagory", async (req, res) => {
   connectToDb();
@@ -332,6 +270,143 @@ app.post("/cart", async (req, res) => {
   }
 });
 
+//get all orders based on different catagory
+app.get("/admin-orders/:status", async (req, res) => {
+  const status = req.params.status;
+
+  try {
+    connectToDb();
+    let orders = [];
+
+    if (status.startsWith("byEmail") || status.startsWith("byOrderId")) {
+      const [method, value] = status.split(":");
+      if (method === "byEmail") {
+        orders = await Order.find({ email: value }).sort({ updatedAt: -1 });
+      } else {
+        orders = [await Order.findById(value)];
+      }
+    } else {
+      // get order from latest to old
+      orders = await Order.find({ status }).sort({ updatedAt: -1 });
+    }
+
+    res.json(orders);
+  } catch (error) {
+    console.log("error in /admin-order ***", error);
+  }
+});
+
+//get all orders based on data: today, this week and this month
+
+app.get("/admin-orders-by-data", async (req, res) => {
+  try {
+    connectToDb();
+    const orders = {
+      today: [],
+      thisWeek: [],
+      thisMonth: [],
+    };
+
+    // Get orders created today
+    const thisDay = new Date();
+    thisDay.setHours(0, 0, 0, 0);
+
+    const tDay = await Order.find({ createdAt: { $gte: thisDay } });
+
+    // Get orders created this week
+    const thisWeekStart = new Date();
+    thisWeekStart.setDate(thisWeekStart.getDate() - thisWeekStart.getDay()); // Set to start of the week (Sunday)
+    thisWeekStart.setHours(0, 0, 0, 0);
+
+    const tWeek = await Order.find({ createdAt: { $gte: thisWeekStart } });
+
+    // Get orders created this month
+    const today = new Date();
+    const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+    const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+    const tMonth = await Order.find({
+      createdAt: { $gte: monthStart, $lt: monthEnd },
+    });
+
+    orders.today = tDay;
+    orders.thisWeek = tWeek;
+    orders.thisMonth = tMonth;
+
+    res.status(200).json(orders);
+  } catch (error) {
+    console.log("error in /admin-orders-by-data : ", error);
+    res.status(500).json("error from /admin-order-details-by-data *** ", error);
+  }
+});
+
+app.post("/update-order-status", async (req, res) => {
+  const { orderId, status } = req.body;
+  connectToDb();
+
+  try {
+    await Order.findByIdAndUpdate(orderId, { status });
+  } catch (error) {
+    console.log("error in /update-order-status *** ", error);
+  }
+});
+
+// get all order of a single client
+app.get("/client-orders/:email", async (req, res) => {
+  const email = req.params.email;
+
+  try {
+    connectToDb();
+
+    const orders = await Order.find({ email, paid: true }).sort({
+      updatedAt: -1,
+    });
+    res.json(orders);
+  } catch (error) {
+    console.log("error in client-orders page", error);
+    res.json("Error: counldn't get orders");
+  }
+});
+
+// addrun getting all product once
+app.get("/all-products-single-variation", async (req, res) => {
+  try {
+    connectToDb();
+    const availCatagoriesData = await AvailableCatagories.find();
+    const { categories } = availCatagoriesData[0];
+
+    const products = [];
+
+    for (const productName of categories) {
+      const product = await SingleVariation.findOne({ productName }).lean();
+      if (product) {
+        products.push(product);
+      }
+    }
+
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+// warining sing to unwanted route
+// app.use((req, res) => {
+//     res.status(404).json({ error: "are you hacking ?" })
+// })
+
+// this part is for node js
+
+// const port = process.env.PORT || 5001;
+// app.listen(port, () => {
+//   console.log("server is running on port, ", port);
+// });
+
+// this part is for firebase
+exports.app = functions.https.onRequest(app);
+
+// ************************* userd before with stripe
+
 // ********************************************
 // checkout page backend to send user to stripe page and return back
 
@@ -454,152 +529,64 @@ app.post("/cart", async (req, res) => {
 //   }
 // });
 
-//get all orders based on different catagory
-app.get("/admin-orders/:status", async (req, res) => {
-  const status = req.params.status;
+// stripe webhook to update order status
+// app.post("/webhook", async (request, response) => {
+//   connectToDb();
+//   const sig = request.headers["stripe-signature"];
 
-  try {
-    connectToDb();
-    let orders = [];
+//   // console.log(request.rawBody);
 
-    if (status.startsWith("byEmail") || status.startsWith("byOrderId")) {
-      const [method, value] = status.split(":");
-      if (method === "byEmail") {
-        orders = await Order.find({ email: value }).sort({ updatedAt: -1 });
-      } else {
-        orders = [await Order.findById(value)];
-      }
-    } else {
-      // get order from latest to old
-      orders = await Order.find({ status }).sort({ updatedAt: -1 });
-    }
+//   let event;
 
-    res.json(orders);
-  } catch (error) {
-    console.log("error in /admin-order ***", error);
-  }
-});
+//   try {
+//     event = stripe.webhooks.constructEvent(
+//       request.rawBody,
+//       sig,
+//       endpointSecret
+//     );
 
-//get all orders based on data: today, this week and this month
+//     // Handle the event
+//     switch (event.type) {
+//       case "checkout.session.completed":
+//         const data = event.data.object;
+//         const orderId = data.metadata.orderId;
+//         const paid = data.payment_status;
 
-app.get("/admin-orders-by-data", async (req, res) => {
-  try {
-    connectToDb();
-    const orders = {
-      today: [],
-      thisWeek: [],
-      thisMonth: [],
-    };
+//         if (orderId && paid === "paid") {
+//           await Order.findByIdAndUpdate(orderId, {
+//             paid: true,
+//             status: "Processing",
+//           });
 
-    // Get orders created today
-    const thisDay = new Date();
-    thisDay.setHours(0, 0, 0, 0);
+//           // sending emails to globaltradersww2@gmail.com to confirm order
+//           await resend.emails.send({
+//             from: "GT <orders@globaltraders-usa.com>",
+//             to: ["globaltradersww2@gmail.com"],
+//             subject: "New order on Global Traders",
+//             html: `<strong>New Orders!</strong> </br> <p>Order Id:  ${orderId}</p> </br> <h2>Go to Global Traders Admin page to see all orders</h2> </br> Link: https://globaltraders-usa.com/admin-secret/orders`,
+//           });
+//         }
 
-    const tDay = await Order.find({ createdAt: { $gte: thisDay } });
+//         console.log(orderId, paid, "*** status of the order");
 
-    // Get orders created this week
-    const thisWeekStart = new Date();
-    thisWeekStart.setDate(thisWeekStart.getDate() - thisWeekStart.getDay()); // Set to start of the week (Sunday)
-    thisWeekStart.setHours(0, 0, 0, 0);
+//         // send email to customer
 
-    const tWeek = await Order.find({ createdAt: { $gte: thisWeekStart } });
+//         // Then define and call a function to handle the event payment_intent.succeeded
+//         break;
+//       // ... handle other event types
+//       default:
+//         console.log(`Unhandled event type ${event.type}`);
+//     }
+//   } catch (err) {
+//     console.log("error happened in stripe webhook ***", err.message);
+//     response
+//       .status(400)
+//       .send(
+//         `**Error: : ${err.message} ///// envs: ${process.env.TEST_ENDPOINTSECRET}`
+//       );
+//     return;
+//   }
 
-    // Get orders created this month
-    const today = new Date();
-    const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
-    const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-    const tMonth = await Order.find({
-      createdAt: { $gte: monthStart, $lt: monthEnd },
-    });
-
-    orders.today = tDay;
-    orders.thisWeek = tWeek;
-    orders.thisMonth = tMonth;
-
-    res.status(200).json(orders);
-  } catch (error) {
-    console.log("error in /admin-orders-by-data : ", error);
-    res.status(500).json("error from /admin-order-details-by-data *** ", error);
-  }
-});
-
-app.post("/update-order-status", async (req, res) => {
-  const { orderId, status } = req.body;
-  connectToDb();
-
-  try {
-    await Order.findByIdAndUpdate(orderId, { status });
-  } catch (error) {
-    console.log("error in /update-order-status *** ", error);
-  }
-});
-
-// get all order of a single client
-app.get("/client-orders/:email", async (req, res) => {
-  const email = req.params.email;
-
-  try {
-    connectToDb();
-
-    const orders = await Order.find({ email, paid: true }).sort({
-      updatedAt: -1,
-    });
-    res.json(orders);
-  } catch (error) {
-    console.log("error in client-orders page", error);
-    res.json("Error: counldn't get orders");
-  }
-});
-
-// form sumbit from addrun
-app.post("/add-run-form-submit", async (req, res) => {
-  const addForm = req.body;
-
-  try {
-    connectToDb();
-    const newAddForm = new AddForm(addForm);
-    await newAddForm.save();
-
-    res.status(200).json(newAddForm);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
-// addrun getting all product once
-app.get("/all-products-single-variation", async (req, res) => {
-  try {
-    connectToDb();
-    const availCatagoriesData = await AvailableCatagories.find();
-    const { categories } = availCatagoriesData[0];
-
-    const products = [];
-
-    for (const productName of categories) {
-      const product = await SingleVariation.findOne({ productName }).lean();
-      if (product) {
-        products.push(product);
-      }
-    }
-
-    res.status(200).json(products);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
-// warining sing to unwanted route
-// app.use((req, res) => {
-//     res.status(404).json({ error: "are you hacking ?" })
-// })
-
-// this part is for node js
-
-// const port = process.env.PORT || 5001;
-// app.listen(port, () => {
-//   console.log("server is running on port, ", port);
+//   // Return a 200 response to acknowledge receipt of the event
+//   response.send("stripe connection success");
 // });
-
-// this part is for firebase
-exports.app = functions.https.onRequest(app);
