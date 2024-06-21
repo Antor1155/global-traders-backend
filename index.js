@@ -146,21 +146,40 @@ app.get("/searchproducts", async (req, res) => {
   try {
     connectToDb();
 
-    const result = [];
+    const filterredWord = searchTerms
+      .filter((word) => !/^iphone$/i.test(word))
+      .join(" ");
 
-    for (const term of searchTerms) {
-      const regex = new RegExp(term, "i");
+    // console.log(filterredWord);
 
-      const products = await SingleVariation.find({
-        $or: [
-          { productName: { $regex: regex } },
-          { storage: { $regex: regex } },
-          { condition: { $regex: regex } },
-        ],
-      });
+    const regex = new RegExp(filterredWord, "i");
 
-      result.push(...products);
-    }
+    const result = await SingleVariation.find({
+      $or: [{ productName: { $regex: regex } }],
+    });
+
+    // const result = [];
+
+    // for (const term of searchTerms) {
+    //   // Check if the term is 'iphone' (case-insensitive) and skip it if true
+    //   if (/^iphone$/i.test(term)) {
+    //     continue;
+    //   }
+
+    //   console.log(term);
+
+    //   const regex = new RegExp(term, "i");
+
+    //   const products = await SingleVariation.find({
+    //     $or: [
+    //       { productName: { $regex: regex } },
+    //       // { storage: { $regex: regex } },
+    //       // { condition: { $regex: regex } },
+    //     ],
+    //   });
+
+    //   result.push(...products);
+    // }
 
     res.status(200).json(result);
   } catch (error) {
