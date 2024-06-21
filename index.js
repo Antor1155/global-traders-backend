@@ -345,7 +345,22 @@ app.post("/update-order-status", async (req, res) => {
   connectToDb();
 
   try {
-    await Order.findByIdAndUpdate(orderId, { status });
+    const order = await Order.findById(orderId);
+    order.status = status;
+
+    await order.save();
+
+    const clientEmail = order?.email;
+
+    // sending emails to globaltradersww2@gmail.com to confirm order
+    await resend.emails.send({
+      from: "GT <orders-update@globaltraders-usa.com>",
+      to: [clientEmail],
+      subject: `Order status changed to ${status}`,
+      html: `<strong>Your order status updated!</strong> </br> <p> Your order with Order_Id:  <span style="color:blue">${order._id}</span>, status updated to <strong> ${status} </strong> </p> </br> <small> Thank you for staying with GlobalTraders </small>`,
+    });
+
+    res.send("success");
   } catch (error) {
     console.log("error in /update-order-status *** ", error);
   }
