@@ -1,29 +1,30 @@
-const mongoose = require("mongoose")
-require("dotenv").config()
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-const uri = process.env.MONGODB_URL
+const uri = process.env.MONGODB_URL;
 
-function connectToDb () {
-    let state = mongoose.connection.readyState
+function connectToDb() {
+  let state = mongoose.connection.readyState;
 
-    if (!state || state == 3){
-        mongoose.connect(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
-    }
+  if (!state || state == 3) {
+    mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  }
+
+  console.log("database connected");
 }
 
-async function disconnectDb(){
-    let state = mongoose.connection.readyState
+async function disconnectDb() {
+  let state = mongoose.connection.readyState;
 
-    if(state || state != 3){
-        await mongoose.disconnect()
-    }
+  if (state || state != 3) {
+    await mongoose.disconnect();
+  }
 }
 
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "mondb connection error"));
 
-const db = mongoose.connection
-db.on("error", console.error.bind(console, "mondb connection error"))
-
-module.exports = {connectToDb, disconnectDb}
+module.exports = { connectToDb, disconnectDb };
